@@ -39,6 +39,15 @@ Muistitilan pidin ennallaan ja automaattista varmuuskopiointia en ottanut käytt
 
 Koska olin työntänyt virtuaalikoneekseni Mintin, niin otin Operating Systen -valikosta käyttöön Ubuntu Server 24.4 LTS. Tässä piti hieman leikkiä etsivää, mutta [Linux Dork-sivustolta](https://linuxdork.com/downloads/linux-mint-22-3-cinnamon/#:~:text=Linux%20Mint%2022.3%20%22Zena%22%20is%20the%20current%20stable,an%20Ubuntu%2024.04%20LTS%20base%20with%20Cinnamon%206.6.) tieto löytyi.  
 
+<img width="351" height="319" alt="5 Linux os valinta" src="https://github.com/user-attachments/assets/e982938a-4c8b-4e52-9337-cece05050dd4" />
+
+<img width="351" height="238" alt="6  Verkkohallinta" src="https://github.com/user-attachments/assets/cf8d73f0-c235-43a5-8925-ae46c699422b" />
+
+Palveluntarjoajan perussäädöillä jatkettiin eteenpäin. 
+
+
+
+
 
 
 
