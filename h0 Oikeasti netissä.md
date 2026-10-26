@@ -1,7 +1,7 @@
 # h0 Oikeasti netissä
 
 Linux palvelinten peruskurssista on aikaa, joten päätin aloittaa perusteista ja kerrata aikaisempaa. 
-Tehtävät Karvisen sivulta[https://terokarvinen.com/palvelinten-hallinta/#esitiedot]
+Tehtävät Karvisen (sivulta)[https://terokarvinen.com/palvelinten-hallinta/#esitiedot]
 Myös aikasempien virtuaalikoneiden salasanojen muistaminen aiheutti tuskaa, joten pyöräytin uuden tulille. 
 Käytin Oracle VirtualBoxia pohjana ja löin sisään Ubuntu-pohjaisen linuxmint-22.3-cinnamon-64bit -levykkeen. 
 
