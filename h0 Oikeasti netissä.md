@@ -26,7 +26,7 @@ Suuntasin opettajan luennolla antamien vinkkien perusteella Upcloudin verkkosivu
 
 <img width="925" height="592" alt="image" src="https://github.com/user-attachments/assets/29c844aa-8187-4782-9b99-17c05d0fdc70" />
 
-asetuksissa käytin Aatu Niemen ohjetta vahvasti omiin tarkoituksiini. 
+Asetuksissa käytin Aatu Niemen ohjetta vahvasti omiin tarkoituksiini. 
 
 <img width="338" height="285" alt="3 serverin sijainti" src="https://github.com/user-attachments/assets/1a1ed149-ce0f-4494-b6a1-03479ed543da" />
 
@@ -34,7 +34,14 @@ Serverin sijainniksi valitsin Suomen.
 
 <img width="691" height="568" alt="image" src="https://github.com/user-attachments/assets/7edf1b60-4fe3-4ec4-9951-3ce52531d997" />
 
-Aloittalijan hommiin otin edullisimman vaihtoehdon testaamista varten. 
+Aloittelijan hommiin otin edullisimman vaihtoehdon testaamista varten. 
+Muistitilan pidin ennallaan ja automaattista varmuuskopiointia en ottanut käyttöön. 
+
+Koska olin työntänyt virtuaalikoneekseni Mintin, niin otin Operating Systen -valikosta käyttöön Ubuntu Server 24.4 LTS. Tässä piti hieman leikkiä etsivää, mutta [Linux Dork-sivustolta](https://linuxdork.com/downloads/linux-mint-22-3-cinnamon/#:~:text=Linux%20Mint%2022.3%20%22Zena%22%20is%20the%20current%20stable,an%20Ubuntu%2024.04%20LTS%20base%20with%20Cinnamon%206.6.) tieto löytyi.  
+
+
+
+
 
  
 
@@ -49,6 +56,7 @@ Aloittalijan hommiin otin edullisimman vaihtoehdon testaamista varten.
 
 
 Lähteet: 
-Tero Karvinen https://terokarvinen.com/palvelinten-hallinta/#esitiedot
-Aatu Niemi https://github.com/AONCODES/linux-course/blob/main/h4.md
-Aleksi Partanen https://partanennn.github.io/linux-servers/practices/fifth-week.html
+Tero Karvinen https://terokarvinen.com/palvelinten-hallinta/#esitiedot  
+Aatu Niemi https://github.com/AONCODES/linux-course/blob/main/h4.md  
+Aleksi Partanen https://partanennn.github.io/linux-servers/practices/fifth-week.html  
+Linux Dork.com https://linuxdork.com/downloads/linux-mint-22-3-cinnamon/#:~:text=Linux%20Mint%2022.3%20%22Zena%22%20is%20the%20current%20stable,an%20Ubuntu%2024.04%20LTS%20base%20with%20Cinnamon%206.6.  
