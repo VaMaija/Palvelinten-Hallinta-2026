@@ -22,6 +22,23 @@ Järjestelmätyyppi	64-bittinen käyttöjärjestelmä
 
 <img width="949" height="298" alt="1  Uusi virtuaalikone mint" src="https://github.com/user-attachments/assets/d65f4e64-1da8-4b48-9f81-9172e8d76b2e" />
 
+Suuntasin opettajan luennolla antamien vinkkien perusteella Upcloudin verkkosivulle, josta lunastin itselleni palan pilveä. 
+
+<img width="925" height="592" alt="image" src="https://github.com/user-attachments/assets/29c844aa-8187-4782-9b99-17c05d0fdc70" />
+
+asetuksissa käytin Aatu Niemen ohjetta vahvasti omiin tarkoituksiini. 
+
+<img width="338" height="285" alt="3 serverin sijainti" src="https://github.com/user-attachments/assets/1a1ed149-ce0f-4494-b6a1-03479ed543da" />
+
+Serverin sijainniksi valitsin Suomen. 
+
+<img width="691" height="568" alt="image" src="https://github.com/user-attachments/assets/7edf1b60-4fe3-4ec4-9951-3ce52531d997" />
+
+Aloittalijan hommiin otin edullisimman vaihtoehdon testaamista varten. 
+
+ 
+
+
 
 
 
