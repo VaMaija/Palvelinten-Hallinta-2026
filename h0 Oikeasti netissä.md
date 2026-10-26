@@ -10,3 +10,5 @@ Asennettu RAM	8,00 Gt (7,82 Gt käytettävissä)
 Tallennustila	146 GB/238 GB käytetty
 Järjestelmätyyppi	64-bittinen käyttöjärjestelmä
 
+_________
+
