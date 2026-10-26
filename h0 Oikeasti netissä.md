@@ -20,6 +20,9 @@ Asennettu RAM	8,00 Gt (7,82 Gt käytettävissä)
 Tallennustila	146 GB/238 GB käytetty
 Järjestelmätyyppi	64-bittinen käyttöjärjestelmä
 
+<img width="949" height="298" alt="1  Uusi virtuaalikone mint" src="https://github.com/user-attachments/assets/d65f4e64-1da8-4b48-9f81-9172e8d76b2e" />
+
+
 
 
 
