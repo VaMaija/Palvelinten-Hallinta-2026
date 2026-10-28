@@ -101,8 +101,14 @@ Selvisi, että pelikirjaa pitää ajaa ilmeisesti ansible-kansiosta.
 
 
 
+________________________________________
+lähteet
+    
+Tero karvinen 2026 SSH public key - Login without password 
+https://terokarvinen.com/ssh-public-key-login-without-password/  
+Tero Karvinen 2026 Hello Asible https://terokarvinen.com/hello-ansible/  
 
-
+YAML kirjoitussäännöt Coddykit https://www.coddykit.com/fi/courses/devops_bootcamp/yaml-syntax-you-need-for-ansible-12905510 
 
 
 
