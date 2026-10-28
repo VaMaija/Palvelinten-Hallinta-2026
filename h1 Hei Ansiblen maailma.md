@@ -6,12 +6,9 @@ Tero Karvisen kirjoittamassa SSH public key - Login without password tekstissä 
 
 [Karvinen 2026](https://terokarvinen.com/hello-ansible/): Hello Ansible  
 Karvisen toisessa tekstissä käydään läpi Ansiblea. Kyseessä on asetustenhallintatyökalu. Työkalulle annetaan playbook, jonka avulla määritellään halutut asetukset. "Pelikirja" tallennetaan yhdeksi tiedostoksi yaml-muodossa. Ansible toimii ssh kautta.  
-työkalun käyttöön vaaditaan ssh Daemon ja Python
-  
+työkalun käyttöön vaaditaan ssh Daemon ja Pythonia. Ansiblen pelikirja koostuu kansiota, johon kootaan ansiblessa käytetyt koneet, roolit ja tehtävät. 
 
-
-
-
+**Voisiko näitä käydä tarkemmin vielä tunnilla läpi?** 
 
 
 ### a)  *Paikallista. Asenna Debian 13 paikallisesti virtuaalikoneeseen. Voit käyttää esimerkiksi VirtualBoxia.*
@@ -61,6 +58,45 @@ $ ssh-copy-id localhost
   
 ### d) *Hei Ansible. Tee hei maailma ansiblella ja kokeile sitä SSH:n yli. (localhost kelpaa)* 
 
+$ sudo apt-get install ansible micro bash-completion tree  
+parit kirjoitusvirheet luonnollisesti rimpsuun mukaan, jotta mikään ei menisi läpi ohjatusti ekalla kerroksella.  
+
+lisää käyttöön pythonia ja muita työkaluja.  
+
+<img width="381" height="89" alt="pythonia peliin" src="https://github.com/user-attachments/assets/8b4069a5-1e2e-41bd-b310-c229f3ee39cd" />  
+
+käyttäjälle luotiin uusi Ansiblekansio 
+
+$ mkdir ansible  
+kasioon luodaan hosts.ini -niminen tekstitiedosto, johon kirjataan hallittavat tahot. Tässä vaiheessa vain localhost. 
+$ micro hosts.ini  
+"localhost" 
+
+<img width="211" height="44" alt="ansible hosts lista" src="https://github.com/user-attachments/assets/247dc1bb-c3db-4b89-a5dd-dca945153825" />
+
+seuraava ongelma:  
+
+<img width="558" height="37" alt="eka ansible uptime ongelma" src="https://github.com/user-attachments/assets/7adc1924-fa62-4bd7-8b38-1a307bf6bc3d" />  
+
+Pähkäilin tätä pitkän, mutta selvisi että minun tulee olle komennon antaessani ansible-kansiossa, jotta se toimisi.  
+
+<img width="578" height="110" alt="ansible kansioon" src="https://github.com/user-attachments/assets/477e06b8-1e12-43a6-aec0-060cc5ee03a1" /> 
+
+Pelikirjani ei toimi. 
+
+
+  <img width="470" height="245" alt="yaml 1" src="https://github.com/user-attachments/assets/97a84087-e7f8-4f6e-8b15-56221a892fef" />    
+
+  <img width="491" height="285" alt="yaml 2" src="https://github.com/user-attachments/assets/5ae449b1-f655-4cc7-99bd-7acef9cd207a" />  
+
+  <img width="344" height="29" alt="yaml 3" src="https://github.com/user-attachments/assets/e6e034f0-4b83-4c3f-84c1-6705cef895bf" />  
+
+Selvisi, että pelikirjaa pitää ajaa ilmeisesti ansible-kansiosta.  
+
+
+ Tähän asti pääsin deadlineen mennessä. 
+
+ jatkuu myöhemmin illalla...
 
 
 
@@ -78,7 +114,22 @@ $ ssh-copy-id localhost
 
 
 
-d) *Hei Ansible. Tee hei maailma ansiblella ja kokeile sitä SSH:n yli. (localhost kelpaa)*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 e) *Vapaaehtoinen bonus: kokeile Ansiblella jokin näista asetuksista: paketin asennus, asetustiedosto /etc/ alle, käynnistä jokin demoni, tee uusi käyttäjä. Tarvitset todennäköisesti sudoa, become: true.*
 
 
