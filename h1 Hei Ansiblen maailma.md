@@ -21,6 +21,9 @@ sain homman ratkaistua lopulta vaihtamalla sen asennuksen aikana asetuksista 64-
 <img width="585" height="364" alt="5 asetuksista 64-bittiseksi" src="https://github.com/user-attachments/assets/6f993f4f-d957-4382-aaf6-a13d3801acbe" />  
 
 b) *Sshecrets. Asenna SSH-demoni käsin ja testaa se kirjautumalla SSH:lla. (localhost kelpaa)*
+$ sudo apt-get install ssh
+
+
 
 
 c) *Pubkey. Automatisoi ssh-kirjautuminen julkisella avaimella. (localhost kelpaa)*
