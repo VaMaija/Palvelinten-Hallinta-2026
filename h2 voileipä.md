@@ -84,7 +84,58 @@ palasin omaksi itsekseni vaihtamalla käyttäjää:
 
 kopioin Karvisen sivulta yml-koodin ja vaihdoin keyksi oman käyttäjän public keyn... en ole tästä täysin varma.  
 
-<img width="569" height="174" alt="Näyttökuva 2026-11-03 234951" src="https://github.com/user-attachments/assets/a0307578-bdc7-4394-ab6c-5b391c5ec06b" />  
+<img width="569" height="174" alt="Näyttökuva 2026-11-03 234951" src="https://github.com/user-attachments/assets/a0307578-bdc7-4394-ab6c-5b391c5ec06b" />    
+
+
+Nyt kun olin tässä vaiheessa päättin tarkastaa mitä olin tehnyt.  
+Olin luonut anteron roolituksen väärään suuntaan.  
+
+<img width="479" height="253" alt="Näyttökuva 2026-11-03 235526" src="https://github.com/user-attachments/assets/9a7fb579-f580-4f5b-8a74-a6a5b3cb000f" />  
+
+kopion kansion oikeaan kohteeseen ja postin sen jälkeen väärästä paikasta.  
+
+    maija@hallitsija3:~$ cp -r roles/ ansible/
+    maija@hallitsija3:~$ tree -F
+     
+
+<img width="230" height="271" alt="Näyttökuva 2026-11-04 000514" src="https://github.com/user-attachments/assets/b7558bd6-8451-4fde-ac17-8a60329ea020" />  
+
+    maija@hallitsija3:~$ rm -r roles/ 
+    maija@hallitsija3:~$ cd ansible/  
+    maija@hallitsija3:~/ansible$ cat site.yml 
+    - hosts: all  
+      become: true   
+      roles:  
+        - hello  
+        - antero  
+    maija@hallitsija3:~/ansible$ ansible-playbook site.yml  
+
+<img width="573" height="104" alt="Näyttökuva 2026-11-04 001752" src="https://github.com/user-attachments/assets/3ad0f4e5-111d-47a0-83bf-e57a54ce5c9c" />  
+
+    maija@hallitsija3:~/ansible$ ansible-playbook site.yml --ask-become-pass
+    BECOME password:   //Tämä vähän hämmensi, kyse oli kuitenkin maija-käyttäjän salasanasta. 
+    
+<img width="773" height="267" alt="Näyttökuva 2026-11-04 002535" src="https://github.com/user-attachments/assets/2af5f86e-53e9-4ea7-9d95-d5793acc4a4a" />  
+
+
+ 
+      
+    
+
+
+
+
+
+    
+
+
+    
+
+
+
+    
+
+
 
 
 
