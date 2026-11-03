@@ -26,7 +26,14 @@ Kustakin vain
 
   <img width="1855" height="694" alt="image" src="https://github.com/user-attachments/assets/72bcc5de-a6cf-40a8-b921-af4e0cb84109" />  
 
-  ansible-doc copy 
+  ansible-doc copy //Kopioi paikallisen tai etäkoneen tiedoston tai kansiorakenteen.  
+    attributes: alias pääsivulla [attr], default[null] type[str] 
+    backup:  luo kopion tiedostosta ja luo myös aikaleiman, jos alkuperäinen tiedosto jotenkin asentuu huonosti.   
+    checksum:  Sha1 tarkastusluku varmistetaan kopiosta. 
+    content:  
+    decrypt:  
+    
+  
   ansible-doc apt    
   ansible-doc file  
   ansible-doc user  
@@ -43,7 +50,7 @@ docs.ansible.com/projects/ansible/latest/cli/ansible-doc.html
 kun kaikki pitää tehdä alusta ymmärtääkseen... 
 [https://github.com/VaMaija/testailua.md ](https://github.com/VaMaija/testailua.md/blob/main/alusta%20uudelleen.md)  
 
-### A) a) Sudoless. Tee ansiblea varten tunnus, jolla voi käyttää sudoa ilman salasanaa. Sekä ssh-kirjautuminen että sudon käyttö tulee olla ansbilea varten automatisoitu.
+### A) Sudoless. Tee ansiblea varten tunnus, jolla voi käyttää sudoa ilman salasanaa. Sekä ssh-kirjautuminen että sudon käyttö tulee olla ansbilea varten automatisoitu.
 [ohjeet](https://terokarvinen.com/passwordless-sudo/): Tero Karvinen Sudo without password 2026  
     
     maija@hallitsija3:~$ sudo adduser antero
