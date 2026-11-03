@@ -21,10 +21,14 @@ Ansiblen sisäänrakennettu dokumentaatio ansible-doc -kommennolla.
         Esimerkeistä (EXAMPLES) jokin helppo ja keskeinen esimerkki
 
 
-## Miten tähän päästiin? 
+## Miten tähän asti päästiin? 
 
 kun kaikki pitää tehdä alusta ymmärtääkseen... 
-https://github.com/VaMaija/testailua.md 
+[https://github.com/VaMaija/testailua.md ](https://github.com/VaMaija/testailua.md/blob/main/alusta%20uudelleen.md)  
+
+    
+
+
 
 
 
@@ -37,3 +41,4 @@ Lähteet:
 Karvinen 2026: Sudo without password:  https://terokarvinen.com/passwordless-sudo/  
 Munroe 2006: xkcd 149: Sandwitch: https://xkcd.com/149/   
 Karvinen 2026: Passwordless Sudo with Ansible: https://terokarvinen.com/passwordless-sudo-with-ansible/   
+Väliaho 2026 Testailua https://github.com/VaMaija/testailua.md/blob/main/alusta%20uudelleen.md 
