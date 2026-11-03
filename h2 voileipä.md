@@ -26,6 +26,23 @@ Ansiblen sisäänrakennettu dokumentaatio ansible-doc -kommennolla.
 kun kaikki pitää tehdä alusta ymmärtääkseen... 
 [https://github.com/VaMaija/testailua.md ](https://github.com/VaMaija/testailua.md/blob/main/alusta%20uudelleen.md)  
 
+    maija@hallitsija3:~$ sudo adduser antero
+    maija@hallitsija3:~$ sudo groupadd sudoless  
+    maija@hallitsija3:~$ sudo adduser antero sudoless  
+
+avataan uusi terminaali  
+    maija@hallitsija3:~$ ssh localhost 
+    <img width="415" height="50" alt="Näyttökuva 2026-11-03 220659" src="https://github.com/user-attachments/assets/d522f0e7-d185-4a75-9584-b6579b236670" />  
+    
+    
+
+    
+  
+
+    
+    
+    
+
     
 
 
