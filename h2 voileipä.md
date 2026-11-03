@@ -23,6 +23,9 @@ Ansiblen sisäänrakennettu dokumentaatio ansible-doc -kommennolla.
 
 ## Miten tähän päästiin? 
 
+kun kaikki pitää tehdä alusta ymmärtääkseen... 
+https://github.com/VaMaija/testailua.md 
+
 
 
 
