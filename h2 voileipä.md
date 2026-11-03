@@ -146,6 +146,8 @@ kopion kansion oikeaan kohteeseen ja postin sen jälkeen väärästä paikasta.
 
 
 
+4.11.2026 klo 01:26 nukkumaan   
+
 
 
 
