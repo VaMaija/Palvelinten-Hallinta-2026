@@ -7,18 +7,35 @@ Ansiblen tarvitsee root-oikeudet slave -koneelle. Yksi tapa on sallia sudo-oikeu
 -luodaan uusi käyttäjä "antero"  
 -luodaan "sudoless" -ryhmä, johon uusi käyttäjä liitetään. 
   
-Munroe 2006: xkcd 149: Sandwitch:  
- 
+Munroe 2006: xkcd 149: Sandwitch:   
+<img width="360" height="299" alt="sandwich" src="https://github.com/user-attachments/assets/88f4c008-dfc1-406d-937a-4c7a704e1af6" />  
+Tämä tarkoittanee, että minulla on vihdoin kaikki valta lapsiini, jos he osaavat oikeaa kieltä.  
+
   
 Karvinen 2026: Passwordless Sudo with Ansible  
-Ansiblella luodaan uusi käyttäjä sudoless-ryhmään ja luodaan sääntö, joka lisää sudoers.d/NOPASSWD säännön ryhmään.  
+Ansiblella luodaan uusi käyttäjä sudoless-ryhmään ja luodaan sääntö, joka lisää sudoers.d/NOPASSWD säännön ryhmään. 
+askel-askeleelta -ohje uuden käyttäjän ja käyttäjäryhmän luomiseen Ansiblella. 
 
-Ansiblen sisäänrakennettu dokumentaatio ansible-doc -kommennolla.
+Ansiblen sisäänrakennettu dokumentaatio ansible-doc -kommennolla. 
+Kustakin vain  
+  Johdantokappale (Usein MODULE alla, päättyy OPTIONS alkuun)  
+  Nimetyt optiot selityksineen  
+  Esimerkeistä (EXAMPLES) jokin helppo ja keskeinen esimerkki  
 
-    Kustakin vain
-        Johdantokappale (Usein MODULE alla, päättyy OPTIONS alkuun)
-        Nimetyt optiot selityksineen
-        Esimerkeistä (EXAMPLES) jokin helppo ja keskeinen esimerkki
+  maija@hallitsija3:~/ansible$ ansible-doc -h //Help 
+
+  <img width="1855" height="694" alt="image" src="https://github.com/user-attachments/assets/72bcc5de-a6cf-40a8-b921-af4e0cb84109" />  
+
+  ansible-doc copy 
+  ansible-doc apt    
+  ansible-doc file  
+  ansible-doc user  
+  ansible-doc authorized_key  
+
+  
+
+
+docs.ansible.com/projects/ansible/latest/cli/ansible-doc.html  
 
 
 ## Miten tähän asti päästiin? 
@@ -118,7 +135,14 @@ kopion kansion oikeaan kohteeseen ja postin sen jälkeen väärästä paikasta.
 <img width="773" height="267" alt="Näyttökuva 2026-11-04 002535" src="https://github.com/user-attachments/assets/2af5f86e-53e9-4ea7-9d95-d5793acc4a4a" />  
 
 
- 
+### C) Package. Asenna kaksi pakettia Ansiblella. 
+
+
+
+
+
+
+
       
     
 
@@ -178,3 +202,4 @@ Karvinen 2026: Sudo without password:  https://terokarvinen.com/passwordless-sud
 Munroe 2006: xkcd 149: Sandwitch: https://xkcd.com/149/   
 Karvinen 2026: Passwordless Sudo with Ansible: https://terokarvinen.com/passwordless-sudo-with-ansible/   
 Väliaho 2026 Testailua https://github.com/VaMaija/testailua.md/blob/main/alusta%20uudelleen.md 
+Ansible-doc https://docs.ansible.com/ 
