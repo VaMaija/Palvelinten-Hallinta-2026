@@ -82,23 +82,13 @@ palasin omaksi itsekseni vaihtamalla käyttäjää:
     maija@hallitsija3:~$ micro roles/antero/tasks/main.yml  
     maija@hallitsija3:~$ cat roles/antero/tasks/main.yml  
 
-kopioin Karvisen sivulta yml-koodin:  
-    - group:
-        name: "sudoless"
-        state: present
-    - user:
-        name: "antero"
-        state: present
-        groups: ["sudoless", "sudo", "adm"]
-    - authorized_key:
-        user: "antero"
-        key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJDnFsiYmb/jqVasT1k3ssypbr1thYl8pnKAj36/6/vK maija@hallitsija"  // Tähän vaihdoin oman publickeyn, en ole tästä varma...
-    - copy:
-        dest: "/etc/sudoers.d/sudoless"
-        content: "%sudoless ALL = (ALL) NOPASSWD: ALL\n"
-        owner: "root"
-        group: "root"
-        mode: "0644"
+kopioin Karvisen sivulta yml-koodin ja vaihdoin keyksi oman käyttäjän public keyn... en ole tästä täysin varma.  
+
+<img width="569" height="174" alt="Näyttökuva 2026-11-03 234951" src="https://github.com/user-attachments/assets/a0307578-bdc7-4394-ab6c-5b391c5ec06b" />  
+
+
+
+
 
 
 
