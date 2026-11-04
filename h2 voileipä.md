@@ -16,16 +16,46 @@ Ansiblen tarvitsee root-oikeudet slave -koneelle. Yksi tapa on sallia sudo-oikeu
  
 **Karvinen 2026: Passwordless Sudo with Ansible** 
 Ansiblella luodaan rooli "antero", joka tekee samat toimet automaattisesti kuin manuaalisesti tehtiin Sudo without password-tekstissä. uuden käyttäjän  uusi käyttäjä sudoless-ryhmään ja luodaan sääntö, joka lisää sudoers.d/NOPASSWD säännön ryhmään. 
-askel-askeleelta -ohje uuden käyttäjän ja käyttäjäryhmän luomiseen Ansiblella. 
+askel-askeleelta -ohje uuden käyttäjän ja käyttäjäryhmän luomiseen Ansiblella.  
+
+muistiinpanot itselle:  ansible-kansioon luodaan mkdir -p roles/antero/tasks/ sijainti, johon lisätään tekstitiedosto main.yml  
+*luodaan ryhmä sudoless:  
+    - group:  
+        name: "sudoless"  
+        state: present  
+*Luodaan käyttäjä antero ja lisää sen ryhmään sudoless, adm ja sudo:  
+    - user: 
+        name: "antero"  
+        state: present  
+        groups: ["sudoless", "sudo", "adm"]  
+*lisää käyttäjälle SSH-avaimen: /hostin SSH  
+    - authorized_key:  
+        user: "anero"  
+        key: ""SSh-ed*****...."  
+*Luodaan /etc/sudoers.d/sudoless -tiedosto:   
+    - copy:    
+        dest: "/etc/sudoers.d/sudoless"  
+        content: "%sudoless ALL = (ALL) NOPASSWD: ALL \n"  
+        owner: "root"  
+        group: "root"  
+        mode: "0644"* 
+        
+
+
+      
 
 Kesken: 
 *Ansiblen sisäänrakennettu dokumentaatio ansible-doc -kommennolla. *
-Kustakin vain  
-  Johdantokappale (Usein MODULE alla, päättyy OPTIONS alkuun)  
-  Nimetyt optiot selityksineen  
-  Esimerkeistä (EXAMPLES) jokin helppo ja keskeinen esimerkki  
+Kustakin vain    
+  Johdantokappale (Usein MODULE alla, päättyy OPTIONS alkuun)    
+  Nimetyt optiot selityksineen    
+  Esimerkeistä (EXAMPLES) jokin helppo ja keskeinen esimerkki    
 
-  maija@hallitsija3:~/ansible$ ansible-doc -h //Help 
+  ansicble-doc saadaan näkyviin: 
+    maija@hallitsija3:~/ansible$ ansible-doc copy  
+ansible.buildin.copy -moduuli kopioi tiedoston tai hakemistorakenteen paikalliselta tai etäkoneelta kohdesijaintiin etäkoneella. Tiedostojärjestemässä käyttötietoja voidaan asettaa vaikka kyseinen tiedosto olisi jo olemassa (esim. päivittää tiedoston oikeilla oikeuksilla)  
+
+    
 
   <img width="1855" height="694" alt="image" src="https://github.com/user-attachments/assets/72bcc5de-a6cf-40a8-b921-af4e0cb84109" />  
 
@@ -149,7 +179,8 @@ kopion kansion oikeaan kohteeseen ja postin sen jälkeen väärästä paikasta.
 
 
 
-4.11.2026 klo 01:26 nukkumaan, jatkuu vasta keskiviikon työpäivän jälkeen.     
+4.11.2026 klo 01:26 nukkumaan, jatkuu vasta keskiviikon työpäivän jälkeen.  
+4.11.2026 klo 21:00 jatkuu raportin muokkaus luettavampaan muotoon ja loppujen tehtävien teko.  
 
 
 
