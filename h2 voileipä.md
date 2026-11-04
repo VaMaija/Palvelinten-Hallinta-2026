@@ -57,7 +57,7 @@ ansible.buildin.copy -moduuli kopioi tiedoston tai hakemistorakenteen paikallise
 
     
 
-  <img width="1855" height="694" alt="image" src="https://github.com/user-attachments/assets/72bcc5de-a6cf-40a8-b921-af4e0cb84109" />  
+   
 
   ansible-doc copy //Kopioi paikallisen tai etäkoneen tiedoston tai kansiorakenteen.  
     attributes: alias pääsivulla [attr], default[null] type[str] 
