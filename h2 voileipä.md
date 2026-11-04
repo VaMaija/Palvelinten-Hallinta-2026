@@ -1,22 +1,25 @@
-## h2 voileipä
+## h2 Voileipä
 
 ### x) Lue ja tiivistä. 
 
-Karvinen 2026: Sudo without password 
+**Karvinen 2026: Sudo without password** 
 Ansiblen tarvitsee root-oikeudet slave -koneelle. Yksi tapa on sallia sudo-oikeudet ilman salasanaa.  
 -luodaan uusi käyttäjä "antero"  
--luodaan "sudoless" -ryhmä, johon uusi käyttäjä liitetään. 
+-luodaan "sudoless" -ryhmä, johon uusi käyttäjä liitetään. Ryhmälle luodaan sääntö, jonka mukaan ryhmässä olevat käyttäjät eivät tarvitse salasanaa. 
+-luodaan sääntö visudo tekstieditorilla, joka tekee tekstiin joitain tarkastuksia ennen komennon ajoa. Virheellisen komennon ajosta voi aiheutua järjestelmän lukkiutuminen eikä sudo-oikeudet enää toimi. Tästä syystä kannattaa avata toinen terminaali ennen komennon ajamista.  
+   **huom:  $sudo -i //-i = interactive, siirtää käyttäjän pääkäyttäjätilaan (root) ja lataa puhdistetun ja aitojen root-asetusten mukaisen ympäristön  (Google Gemini)**
   
-Munroe 2006: xkcd 149: Sandwitch:   
+**Munroe 2006: xkcd 149: Sandwitch**  
 <img width="360" height="299" alt="sandwich" src="https://github.com/user-attachments/assets/88f4c008-dfc1-406d-937a-4c7a704e1af6" />  
-Tämä tarkoittanee, että minulla on vihdoin kaikki valta lapsiini, jos he osaavat oikeaa kieltä.  
 
-  
-Karvinen 2026: Passwordless Sudo with Ansible  
-Ansiblella luodaan uusi käyttäjä sudoless-ryhmään ja luodaan sääntö, joka lisää sudoers.d/NOPASSWD säännön ryhmään. 
+*Yksittäinen sarjakuvaruutu, jossa hahmo pyytää toiselta hahmolta voileipää. Saa sen vasta käytettyään sudoa ennen pyyntöä.* 
+ 
+**Karvinen 2026: Passwordless Sudo with Ansible** 
+Ansiblella luodaan rooli "antero", joka tekee samat toimet automaattisesti kuin manuaalisesti tehtiin Sudo without password-tekstissä. uuden käyttäjän  uusi käyttäjä sudoless-ryhmään ja luodaan sääntö, joka lisää sudoers.d/NOPASSWD säännön ryhmään. 
 askel-askeleelta -ohje uuden käyttäjän ja käyttäjäryhmän luomiseen Ansiblella. 
 
-Ansiblen sisäänrakennettu dokumentaatio ansible-doc -kommennolla. 
+Kesken: 
+*Ansiblen sisäänrakennettu dokumentaatio ansible-doc -kommennolla. *
 Kustakin vain  
   Johdantokappale (Usein MODULE alla, päättyy OPTIONS alkuun)  
   Nimetyt optiot selityksineen  
@@ -53,9 +56,9 @@ kun kaikki pitää tehdä alusta ymmärtääkseen...
 ### A) Sudoless. Tee ansiblea varten tunnus, jolla voi käyttää sudoa ilman salasanaa. Sekä ssh-kirjautuminen että sudon käyttö tulee olla ansbilea varten automatisoitu.
 [ohjeet](https://terokarvinen.com/passwordless-sudo/): Tero Karvinen Sudo without password 2026  
     
-    maija@hallitsija3:~$ sudo adduser antero
-    maija@hallitsija3:~$ sudo groupadd sudoless  
-    maija@hallitsija3:~$ sudo adduser antero sudoless  
+    maija@hallitsija3:~$ sudo adduser antero  //Lisätään käyttäjä "antero" ja anterolle salasanat ym. 
+    maija@hallitsija3:~$ sudo groupadd sudoless  //Lisätään ryhmä "sudoless"
+    maija@hallitsija3:~$ sudo adduser antero sudoless  //Lisätään "antero" osaksi ryhmää "sudoless". Ryhmä saa myöhemmin säännön, jonka takia salasanoja ei tarvita.  
 
 *Avataan uusi terminaali*   
 
