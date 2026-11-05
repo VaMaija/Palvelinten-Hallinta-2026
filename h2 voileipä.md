@@ -75,16 +75,7 @@ Paketinhallintaa:
 **state**  
 **update_cache**  
 
- 
-
-
-
-
-    
-
-   
-
-   
+  
     attributes: alias pääsivulla [attr], default[null] type[str] 
     backup:  luo kopion tiedostosta ja luo myös aikaleiman, jos alkuperäinen tiedosto jotenkin asentuu huonosti.   
     checksum:  Sha1 tarkastusluku varmistetaan kopiosta. 
@@ -95,7 +86,7 @@ Paketinhallintaa:
   ansible-doc apt    
   ansible-doc file  
   ansible-doc user  
-  ansible-doc authorized_key  
+  ansible-doc authorized_key  **TÄMÄ KESKEN**
 
   
 
@@ -202,16 +193,38 @@ kopion kansion oikeaan kohteeseen ja postin sen jälkeen väärästä paikasta.
 
 ### C) Package. Asenna kaksi pakettia Ansiblella.  
 
-koska en juurikaan osaa jkäyttää gitiä, niin sehän pitää yrittää asentaa. Samoin kiinnostelee asentaa Apache2 myös Ansiblella.  
+Asensin apachen ja palomuurin.    
 
-testataan:  
+    maija@hallitsija3:~/ansible$ mkdir -p roles/kaksipakettia/tasks   // Luodaan roolikansio kaksipakettia ja siihen tasks-kansio ja main.yml -kooditiedosto  
+    maija@hallitsija3:~/ansible$ cd roles/kaksipakettia/tasks/
+    maija@hallitsija3:~/ansible/roles/kaksipakettia/tasks$ micro main.yml
+
+<img width="172" height="64" alt="Näyttökuva 2026-11-05 065052" src="https://github.com/user-attachments/assets/2f1e8152-4514-46c1-a6ac-5613ee276b26" />  
+
+
+Siirrytään ansible-kansion alkuun ja lisätään rooli site.yml -tiedostoon  
+    maija@hallitsija3:~/ansible$ micro site.yml 
+
+    
+<img width="233" height="67" alt="Näyttökuva 2026-11-05 065604" src="https://github.com/user-attachments/assets/ccbe3638-f5b9-46ae-a5d3-4939aef0b074" />  
+
+     
+
+<img width="213" height="146" alt="Näyttökuva 2026-11-05 065714" src="https://github.com/user-attachments/assets/45cd80a2-1ce4-4a22-8f71-de450be1088c" />
+
+
+
+
+
 
 
 
 
 
 4.11.2026 klo 01:26 nukkumaan, jatkuu vasta keskiviikon työpäivän jälkeen.  
-4.11.2026 klo 21:00 jatkuu raportin muokkaus luettavampaan muotoon ja loppujen tehtävien teko.  
+4.11.2026 klo 21:00 jatkuu raportin muokkaus luettavampaan muotoon... 
+5.11.2026 klo 6:15
+
 
 
 
