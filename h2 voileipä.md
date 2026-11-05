@@ -7,6 +7,7 @@ Ansiblen tarvitsee root-oikeudet slave -koneelle. Yksi tapa on sallia sudo-oikeu
 -luodaan uusi käyttäjä "antero"  
 -luodaan "sudoless" -ryhmä, johon uusi käyttäjä liitetään. Ryhmälle luodaan sääntö, jonka mukaan ryhmässä olevat käyttäjät eivät tarvitse salasanaa. 
 -luodaan sääntö visudo tekstieditorilla, joka tekee tekstiin joitain tarkastuksia ennen komennon ajoa. Virheellisen komennon ajosta voi aiheutua järjestelmän lukkiutuminen eikä sudo-oikeudet enää toimi. Tästä syystä kannattaa avata toinen terminaali ennen komennon ajamista.  
+
    **huom:  $sudo -i //-i = interactive, siirtää käyttäjän pääkäyttäjätilaan (root) ja lataa puhdistetun ja aitojen root-asetusten mukaisen ympäristön  (Google Gemini)**
   
 **Munroe 2006: xkcd 149: Sandwitch**  
@@ -19,26 +20,30 @@ Ansiblella luodaan rooli "antero", joka tekee samat toimet automaattisesti kuin 
 askel-askeleelta -ohje uuden käyttäjän ja käyttäjäryhmän luomiseen Ansiblella.  
 
 muistiinpanot itselle:  ansible-kansioon luodaan mkdir -p roles/antero/tasks/ sijainti, johon lisätään tekstitiedosto main.yml  
-*luodaan ryhmä sudoless:  
-    - group:  
-        name: "sudoless"  
-        state: present  
-*Luodaan käyttäjä antero ja lisää sen ryhmään sudoless, adm ja sudo:  
-    - user: 
-        name: "antero"  
-        state: present  
-        groups: ["sudoless", "sudo", "adm"]  
-*lisää käyttäjälle SSH-avaimen: /hostin SSH  
-    - authorized_key:  
-        user: "anero"  
-        key: ""SSh-ed*****...."  
-*Luodaan /etc/sudoers.d/sudoless -tiedosto:   
-    - copy:    
-        dest: "/etc/sudoers.d/sudoless"  
-        content: "%sudoless ALL = (ALL) NOPASSWD: ALL \n"  
-        owner: "root"  
-        group: "root"  
-        mode: "0644"* 
+luodaan ryhmä sudoless:  
+
+>   - group:  
+>       name: "sudoless"  
+>       state: present
+>      
+Luodaan käyttäjä antero ja lisää sen ryhmään sudoless, adm ja sudo:  
+>    - user: 
+>        name: "antero"  
+>        state: present  
+>        groups: ["sudoless", "sudo", "adm"]
+
+lisää käyttäjälle SSH-avaimen: /hostin SSH  
+>    - authorized_key:  
+>        user: "anero"  
+>        key: ""SSh-ed*****...."
+
+Luodaan /etc/sudoers.d/sudoless -tiedosto:   
+ >   - copy:    
+ >       dest: "/etc/sudoers.d/sudoless"  
+ >       content: "%sudoless ALL = (ALL) NOPASSWD: ALL \n"  
+ >       owner: "root"  
+ >       group: "root"  
+ >       mode: "0644"* 
         
 
 
@@ -51,15 +56,35 @@ Kustakin vain
   Nimetyt optiot selityksineen    
   Esimerkeistä (EXAMPLES) jokin helppo ja keskeinen esimerkki    
 
-  ansicble-doc saadaan näkyviin: 
-    maija@hallitsija3:~/ansible$ ansible-doc copy  
-ansible.buildin.copy -moduuli kopioi tiedoston tai hakemistorakenteen paikalliselta tai etäkoneelta kohdesijaintiin etäkoneella. Tiedostojärjestemässä käyttötietoja voidaan asettaa vaikka kyseinen tiedosto olisi jo olemassa (esim. päivittää tiedoston oikeilla oikeuksilla)  
+ansible-doc saadaan näkyviin:  
+
+    maija@hallitsija3:~/ansible$ ansible-doc copy   
+    
+**ansible.buildin.copy -moduuli kopioi tiedoston tai hakemistorakenteen paikalliselta tai etäkoneelta kohdesijaintiin etäkoneella. Tiedostojärjestemässä käyttötietoja voidaan asettaa vaikka kyseinen tiedosto olisi jo olemassa (esim. päivittää tiedoston oikeilla oikeuksilla)**  
+**content** käytetäessä 'src' sijasta asettaa tiedon sisällön suoraan määritetyksi arvoksi. Toimii  kun dest on tiedosto. Jos tiedon sisältö sisältää muuttujia kannattaa käyttää ansible.builtin.templatea  
+**dest**   etäkoneella absoluuttinen polku, johon tiedosto kopioidaan.   
+**src**  paikallinen polku tiedostoo, joka kopioidaan etäpalvelimelle voi olla absoluuttinen tai suhteellinen polku. 
+**owner**  sen käyttäjän nimi, joka saa tiedoston omistuksen. Kannattaa vältää numerrisia käyttäjiä, koska sekoittaa userID-numeroon.  
+**group**  sen ryhmän nini joka saa käyttää tiedostoa. 
+**mode** chmod koodi (tuttu /usr/bin/mode -komennnosta) oktaaliluku, johon lisätään etunolla (YML vaatii ymmärtääkseen oktaaliluvun) ja ympärille lainausmerkit Mode-luvusta enemmän myöhemmin tehtävissä.  Nyt käytössä on myös r, w ja x
+
+    maija@hallitsija3:~$ ansible-doc apt  
+    
+Paketinhallintaa: 
+**name**  
+**state**  
+**update_cache**  
+
+ 
+
+
+
 
     
 
    
 
-  ansible-doc copy //Kopioi paikallisen tai etäkoneen tiedoston tai kansiorakenteen.  
+   
     attributes: alias pääsivulla [attr], default[null] type[str] 
     backup:  luo kopion tiedostosta ja luo myös aikaleiman, jos alkuperäinen tiedosto jotenkin asentuu huonosti.   
     checksum:  Sha1 tarkastusluku varmistetaan kopiosta. 
@@ -175,7 +200,13 @@ kopion kansion oikeaan kohteeseen ja postin sen jälkeen väärästä paikasta.
 <img width="773" height="267" alt="Näyttökuva 2026-11-04 002535" src="https://github.com/user-attachments/assets/2af5f86e-53e9-4ea7-9d95-d5793acc4a4a" />  
 
 
-### C) Package. Asenna kaksi pakettia Ansiblella. 
+### C) Package. Asenna kaksi pakettia Ansiblella.  
+
+koska en juurikaan osaa jkäyttää gitiä, niin sehän pitää yrittää asentaa. Samoin kiinnostelee asentaa Apache2 myös Ansiblella.  
+
+testataan:  
+
+
 
 
 
