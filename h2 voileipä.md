@@ -49,46 +49,123 @@ Luodaan /etc/sudoers.d/sudoless -tiedosto:
 
       
 
-Kesken: 
-*Ansiblen sisäänrakennettu dokumentaatio ansible-doc -kommennolla. *
-Kustakin vain    
-  Johdantokappale (Usein MODULE alla, päättyy OPTIONS alkuun)    
-  Nimetyt optiot selityksineen    
-  Esimerkeistä (EXAMPLES) jokin helppo ja keskeinen esimerkki    
+Kesken__ jatkettu 10.11.2026 käyttäen google gemini -tekoälyä. 
+Annoin promtin '''hei! Osaatko auttaa seuraavan tietomassan selkeyttämisessä: Ansiblen sisäänrakennettu dokumentaatio ansible-doc -kommennolla.
+- Kustakin vain
+  - Johdantokappale (Usein MODULE alla, päättyy OPTIONS alkuun)
+  - Nimetyt optiot selityksineen
+  - Esimerkeistä (EXAMPLES) jokin helppo ja keskeinen esimerkki
+- 'ansible-doc copy': content, dest, src; owner, group, mode;
+- 'ansible-doc apt': name, state, update_cache.
+- 'ansible-doc file': path, recurse, src, state. owner, group, mode;
+- 'ansible-doc user': name; create_home, comment, groups, shell, state, system.
+- 'ansible-doc authorized_key': user, key.
+ Miten opin nämä? '''
 
-ansible-doc saadaan näkyviin:  
+1. ansible-doc copy
 
-    maija@hallitsija3:~/ansible$ ansible-doc copy   
-    
-**ansible.buildin.copy -moduuli kopioi tiedoston tai hakemistorakenteen paikalliselta tai etäkoneelta kohdesijaintiin etäkoneella. Tiedostojärjestemässä käyttötietoja voidaan asettaa vaikka kyseinen tiedosto olisi jo olemassa (esim. päivittää tiedoston oikeilla oikeuksilla)**  
-**content** käytetäessä 'src' sijasta asettaa tiedon sisällön suoraan määritetyksi arvoksi. Toimii  kun dest on tiedosto. Jos tiedon sisältö sisältää muuttujia kannattaa käyttää ansible.builtin.templatea  
-**dest**   etäkoneella absoluuttinen polku, johon tiedosto kopioidaan.   
-**src**  paikallinen polku tiedostoo, joka kopioidaan etäpalvelimelle voi olla absoluuttinen tai suhteellinen polku. 
-**owner**  sen käyttäjän nimi, joka saa tiedoston omistuksen. Kannattaa vältää numerrisia käyttäjiä, koska sekoittaa userID-numeroon.  
-**group**  sen ryhmän nini joka saa käyttää tiedostoa. 
-**mode** chmod koodi (tuttu /usr/bin/mode -komennnosta) oktaaliluku, johon lisätään etunolla (YML vaatii ymmärtääkseen oktaaliluvun) ja ympärille lainausmerkit Mode-luvusta enemmän myöhemmin tehtävissä.  Nyt käytössä on myös r, w ja x
+    Johdanto: Kopioi tiedostoja ohjauskoneelta (controller) kohdekoneelle (slave).
 
-    maija@hallitsija3:~$ ansible-doc apt  
-    
-Paketinhallintaa: 
-**name**  
-**state**  
-**update_cache**  
+    Optiot:
 
-  
-    attributes: alias pääsivulla [attr], default[null] type[str] 
-    backup:  luo kopion tiedostosta ja luo myös aikaleiman, jos alkuperäinen tiedosto jotenkin asentuu huonosti.   
-    checksum:  Sha1 tarkastusluku varmistetaan kopiosta. 
-    content:  
-    decrypt:  
-    
-  
-  ansible-doc apt    
-  ansible-doc file  
-  ansible-doc user  
-  ansible-doc authorized_key  **TÄMÄ KESKEN**
+        src: Paikallisen tiedoston polku, joka kopioidaan.
 
-  
+        dest: Kohdepolku slave-koneella, jonne tiedosto sijoitetaan.
+
+        content: Vaihtoehto src:lle; määrittää tiedoston sisällön suoraan merkkijonona.
+
+        owner: Tiedoston omistaja (slave-koneella).
+
+        group: Tiedoston ryhmä.
+
+        mode: Tiedoston käyttöoikeudet oktaalimuodossa (esim. 0644).
+
+    Keskeinen esimerkki:
+
+ <img width="230" height="110" alt="Näyttökuva 2026-11-10 220734" src="https://github.com/user-attachments/assets/15247668-0f02-41d8-957b-a5f5695c256d" />  
+
+ 
+2. ansible-doc apt
+
+    Johdanto: Hallitsee Debian/Ubuntu-pohjaisten järjestelmien APT-paketteja (asennus, poisto, päivitys).
+
+    Optiot:
+
+        name: Asennettavan paketin nimi (tai listaus paketeista).
+
+        state: Paketin tila (present = asennettu, latest = uusin versio, absent = poistettu).
+
+        update_cache: Päivittääkö apt-välimuistin ennen toimintoa (true/false).
+
+    Keskeinen esimerkki:
+
+<img width="228" height="86" alt="Näyttökuva 2026-11-10 221048" src="https://github.com/user-attachments/assets/95ff583c-0515-43cf-b61e-23931ff505d0" />  
+
+3. ansible-doc file
+
+    Johdanto: Hallitsee tiedostojen, hakemistojen ja symbolisten linkkien ominaisuuksia, olemassaoloa ja oikeuksia.
+
+    Optiot:
+
+        path: Käsiteltävän tiedoston tai hakemiston polku (tai dest/name).
+
+        state: Määritetäänkö kohde (directory = hakemisto, file = tiedosto, link = symlinkki, absent = poista).
+
+        recurse: Käsitelläänkö hakemisto rekursiivisesti (true/false, käytetään usein state=directory kanssa).
+
+        src: Lähdepolku (käytetään vain, kun state=link).
+
+        owner: Omistaja.
+
+        group: Ryhmä.
+
+        mode: Käyttöoikeudet.
+
+    Keskeinen esimerkki:
+
+   <img width="302" height="110" alt="Näyttökuva 2026-11-10 221321" src="https://github.com/user-attachments/assets/a3ca8e4c-c657-4300-88f7-9b9e662f70c8" />
+
+   4. ansible-doc user
+
+    Johdanto: Hallitsee käyttöjärjestelmän käyttäjätilejä ja niiden asetuksia slave-koneella.
+
+    Optiot:
+
+        name: Käyttäjänimi.
+
+        state: Onko käyttäjä olemassa (present tai absent).
+
+        shell: Käyttäjän oletuskuori (esim. /bin/bash).
+
+        create_home: Luodaanko kotihakemisto (true/false).
+
+        system: Luodaanko järjestelmäkäyttäjä (true/false).
+
+        groups: Ryhmät, joihin käyttäjä liitetään lisäjäsenenä.
+
+        comment: Kommenttikenttä (esim. käyttäjän koko nimi / GECOS).
+
+    Keskeinen esimerkki:
+
+   <img width="233" height="101" alt="Näyttökuva 2026-11-10 221453" src="https://github.com/user-attachments/assets/32210203-2d88-4d88-9fc7-52ecc6ccc573" />
+
+   5. ansible-doc authorized_key
+
+    Johdanto: Hallitsee käyttäjien SSH-julkiavaimia (authorized_keys), mikä mahdollistaa turvallisen kirjautumisen.
+
+    Optiot:
+
+        user: Käyttäjä, jonka kotihakemiston authorized_keys-tiedostoa muokataan.
+
+        key: Itse SSH-julkiavain merkkijonona (tai polku avaintiedostoon).
+
+        state: Onko avain lisätty (present) vai poistettu (absent).
+
+    Keskeinen esimerkki:
+
+   <img width="272" height="89" alt="Näyttökuva 2026-11-10 221631" src="https://github.com/user-attachments/assets/dcffdaae-f5c1-415f-bcd0-62528b5b6e15" />
+
+   
 
 
 docs.ansible.com/projects/ansible/latest/cli/ansible-doc.html  
