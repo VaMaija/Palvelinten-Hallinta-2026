@@ -55,6 +55,33 @@ Caddy näyttää olevan inactive-tilassa, mutta locahostista vastaa edelleen cad
 
 <img width="305" height="52" alt="Näyttökuva 2026-11-11 021756" src="https://github.com/user-attachments/assets/1a712622-53f1-4f00-ae6c-b65c4441130d" />  
 
+    maija@Virtuaali:~$ sudo a2ensite väliaho.fi.conf
+    Enabling site väliaho.fi.
+    To activate the new configuration, you need to run:
+    "systemctl reload apache2"
+
+Testisivuni ei tule edelleenkään esiin. Caddy on otettu poi käytöstä , mutta se vastaa localhostilta omalla ruudullaan, yksityisellä puolella tulee Apachen oletussivu. 
+
+    maija@Virtuaali:~$ curl -I http://väliaho.fi
+HTTP/1.1 200 OK  // tämä siis toimii lokaalisti , mutta ei vaan näy?  
+Server: nginx  //Mitä ihmettä?  
+Date: Wed, 11 Nov 2026 00:36:22 GMT    
+Content-Type: text/html  
+Content-Length: 1758  
+Last-Modified: Tue, 23 Jun 2026 09:06:03 GMT  
+Connection: keep-alive  
+ETag: "6a3a4c7b-6de"  
+Accept-Ranges: bytes  
+
+tekoäly kertoi minulle syyksi, että koska olin aikaisemmin samalla koneella testannut vuokraamaani osoitetta väliaho.fi, niin localhoatia ei voi testata samalla nimellä. Luonnollisesti tajusin sen klo 03:00 yöllä. 
+
+
+
+ 
+
+
+
+
 
 
     
