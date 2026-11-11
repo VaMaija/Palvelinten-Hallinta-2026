@@ -5,9 +5,11 @@
 
 **Tero Karvinen: Apache installed with Ansible - quick notes**
 [täällä](https://terokarvinen.com/apache-ansible/)  
+Tehtävät piti tehdä ennenkuin pystyin palaamaan ohjeen tiivistämiseen.  
+Karvisen tekstissä käydään läpi Apachen asennus Ansiblen avulla. 
+Teksti ei ole mielestäni kovin selkeä ja vaatii tekijältä jo aikalailla ymmärrystä sekä Ansiblen, että Apachen sielunmaisemasta. 
 
-
-osuus kesken 11.11. 17:30 
+Tekstistä löytyy vaadittu kansiorakenne ja jokaiseen kansioon vaaditun tekstin sisältö. Tehtävien teossa tulee ottaa huomioon eri paketin käyttö.   
 
 
 **Ansible Community Documentation: Handlers: running operations on change**  
