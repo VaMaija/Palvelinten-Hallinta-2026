@@ -9,10 +9,13 @@ Tero Karvisen osuus kesken 11.11. 17:30
 'ansible-doc service':  
 Ansiblen handler on **tehtävä**, joka suoritetaan silloin kun jokin toinen tehtävä tekee todellisen muutoksen kohdejärjestelmässä.  
 
-    enabled: Määrittää käynnistetäänkö palvelu automaattisesti järjestelmän käynnityessä, arvona _true_ tai _false_
-    name, määrittää sen palvelun nimen, jota halutaan hallita (apache2, nginx) default _null_
-    state, määrittää palvelun ajonaikaisne tilan eli onko oltava käynnissä vai pysäytettynä. Tyypillisiä arvoja _started, stopped, restarted_  
-    EXAMPLES Kesken 17:30
+**enabled** Määrittää käynnistetäänkö palvelu automaattisesti järjestelmän käynnityessä, arvona _true_ tai _false_  
+**name** määrittää sen palvelun nimen, jota halutaan hallita (apache2, nginx) default _null_  
+**state** määrittää palvelun ajonaikaisne tilan eli onko oltava käynnissä vai pysäytettynä. Tyypillisiä arvoja _started, stopped, restarted_    
+ 
+esimerkki:  
+
+<img width="227" height="44" alt="Näyttökuva 2026-11-11 181708" src="https://github.com/user-attachments/assets/79a8471e-c66a-48b9-9112-afec8481ce2b" />
 
 
 
