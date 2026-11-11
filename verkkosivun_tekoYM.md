@@ -100,7 +100,7 @@ Ansibleen kirjoitettavat tasks/main.yml-komennot hoitavat varsinaisen asentamise
 - name: reload nginx
   ansible.builtin.service:
     name: nginx
-    state: reloaded
+    state: restarted
 ```
     maija@Virtuaali:~/ansible/roles/nginx/files$ cat example.com.conf 
 ```
@@ -115,6 +115,61 @@ Ansibleen kirjoitettavat tasks/main.yml-komennot hoitavat varsinaisen asentamise
         </Directory>
 </VirtualHost> 
 ```
+
+Päätin kokeilla soittaa tätä noitarumpua:  
+
+        maija@Virtuaali:~/ansible$ ansible-playbook site.yml  //Käynnistetään ansible, vaati sudotuksen  
+        maija@Virtuaali:~/ansible$ ansible-playbook site.yml --ask-become-pass  
+
+<img width="837" height="263" alt="Näyttökuva 2026-11-11 223127" src="https://github.com/user-attachments/assets/e11b5776-c398-42db-8a22-e78e168fd5c1" />  
+
+
+<img width="923" height="170" alt="Näyttökuva 2026-11-11 223204" src="https://github.com/user-attachments/assets/62cbd10a-c2f6-4c3d-abcd-6ee3f31d593c" />         
+
+Hyvältä näytti kunnes tuli virheilmoitus.  
+handlers/main.yml kohdassa on jokin virhe. Menin katsomaan enkä huomannuut mitään virhettä. Syötin tekstin tekoälyklle joka totesi, että minulla on yylimäärinen rivi ja yksi välilyönti. En edelleenkään huomannut eroa. Kopioin tekoälyn kirjoittaman tekstin samaan kohtaan. Se näytti täysin samalta kuin alunperin itse kirjoittamani. Se jäi mysteeriksi, mutta toimi.  Lisäksi tekoäly ilmoitti, että Nginx vaatii omanlaisensa syntaxin. Pyysin luomaan jo Tero Karvisen [koodista](https://terokarvinen.com/apache-ansible/) muokkaamani tekstin oikeaan muotoon.  
+
+```
+# Managed file, changes will be overwritten
+
+server {
+    listen 80;
+    server_name example.com;
+
+    root /home/maija/Julkinensivu/;
+    index index.html index.htm;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+
+```
+
+lopulta Nginx toimi:  
+
+<img width="905" height="295" alt="Näyttökuva 2026-11-11 224347" src="https://github.com/user-attachments/assets/46ea97ee-5504-46e0-be8f-fc6eb5c908c9" />  
+
+Onnistunut loitsu  
+
+<img width="221" height="191" alt="Näyttökuva 2026-11-11 222722" src="https://github.com/user-attachments/assets/96ee51da-0799-4569-9fbc-9d35f8a5425b" />  
+
+Loppupuu
+
+
+Tähän päästiin lopulta 11.11. klo 22:48
+
+
+____
+
+
+Lähteet:  
+
+
+
+
+        
+        
 
 
 
