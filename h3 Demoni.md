@@ -31,8 +31,6 @@ Caddy käyttää porttia 80, kysyin ohjeita tekoälyltä, että miten saan caddy
 
     maija@Virtuaali:~$ sudo systemctl stop caddy  
     maija@Virtuaali:~$ sudo systemctl status caddy     
-    maija@Virtuaali:~$ sudo systemctl stop caddy  
-    maija@Virtuaali:~$ sudo systemctl status caddy  
     
 Caddy näyttää olevan inactive-tilassa, mutta locahostista vastaa edelleen caddyn etusivu. Kävin tilannetta läpi Google Geminin kanssa. Testasin saanko yksityisessä selainikkunassa eri tuloksen ja tosiaan niin kävi. 
 
