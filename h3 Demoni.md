@@ -3,7 +3,12 @@
 
 #### X) Tiivistä. 
 
-Tero Karvisen osuus kesken 11.11. 17:30 
+**Tero Karvinen: Apache installed with Ansible - quick notes**
+[täällä](https://terokarvinen.com/apache-ansible/)  
+
+
+osuus kesken 11.11. 17:30 
+
 
 **Ansible Community Documentation: Handlers: running operations on change**  
 'ansible-doc service':  
@@ -15,8 +20,9 @@ Ansiblen handler on **tehtävä**, joka suoritetaan silloin kun jokin toinen teh
  
 esimerkki:  
 
-<img width="227" height="44" alt="Näyttökuva 2026-11-11 181708" src="https://github.com/user-attachments/assets/79a8471e-c66a-48b9-9112-afec8481ce2b" />
+ 
 
+<img width="520" height="648" alt="image" src="https://github.com/user-attachments/assets/59571bdd-2d41-4a63-8cb0-31a1d01af00b" />    
 
 
 
@@ -126,7 +132,23 @@ Tekemisessä käytettiin vahvasti apuna Google Geminin yksinkertaistettuja ohjei
 
 
 #### c) Automoottorix. Automatisoi Nginx asennus Ansiblella. Ylläpitäjän osuus Ansiblella riittää, itse HTML-weppisivut voi tehdä käsin. kesken 11.11.
-#### d) Vapaaehtoinen bonus: Osiris-T. Osiris-T asentaa Wazuhin ja tarvittavat virtuaalikoneet. Voit lähettää vihamielistä verkkoliikennettä (tcpreplay), siepata sen (suricata) ja saat tulokset suoraan dashboardille (wazuh). Enemmän alpha kuin se kreikkalainen kirjain. Mutta Oskari, Nico ja Arttu ilahtuvat, jos kokeilet. Häkämies, Saario, Mukkula 2026: Osiris-T. Häkämies etal 2026: How to Install. Kesken 11.11.
+
+Toistojen takia olin luonut jälleen uuden virtuaalikoneen. Lähtötilanteeni tämän koneen osalta oli seuraava:  
+
+<img width="185" height="119" alt="Näyttökuva 2026-11-11 185447" src="https://github.com/user-attachments/assets/4784ef5d-2d1a-4902-b6af-9fa76a8540ab" />  
+
+
+
+
+
+
+
+
+
+#### d) Vapaaehtoinen bonus: Osiris-T. Osiris-T asentaa Wazuhin ja tarvittavat virtuaalikoneet. Voit lähettää vihamielistä verkkoliikennettä (tcpreplay), siepata sen (suricata) ja saat tulokset suoraan dashboardille (wazuh). Enemmän alpha kuin se kreikkalainen kirjain. Mutta Oskari, Nico ja Arttu ilahtuvat, jos kokeilet. Häkämies, Saario, Mukkula 2026: Osiris-T. Häkämies etal 2026: How to Install.
+
+
+
 
 
 Lähteet; 
