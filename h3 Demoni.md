@@ -38,12 +38,35 @@ Caddy näyttää olevan inactive-tilassa, mutta locahostista vastaa edelleen cad
 
     maija@Virtuaali:~$ sudo micro /etc/hosts  
     
-<img width="244" height="97" alt="Näyttökuva 2026-11-11 015725" src="https://github.com/user-attachments/assets/020b9038-54d6-4e7a-9dcc-657b2caa6e3f" />
+<img width="244" height="97" alt="Näyttökuva 2026-11-11 015725" src="https://github.com/user-attachments/assets/020b9038-54d6-4e7a-9dcc-657b2caa6e3f" />´
+
+    maija@Virtuaali:~$ sudoedit /etc/apache2/sites-available/Väliaho.fi.conf  
+    
+<img width="301" height="125" alt="Näyttökuva 2026-11-11 020418" src="https://github.com/user-attachments/assets/acb59b5b-4c2e-4811-a421-2016f19b8852" />  
+
+    maija@Virtuaali:~$ mkdir Julkinensivu  //tänne verkkosivun koodimytty ilman sudoa  index.html-nimellä  
+    maija@Virtuaali:~/Julkinensivu$ ls  
+    index.html  
+    maija@Virtuaali:~$ ls -la /home/ | grep maija
+    "drwx------ 20 maija  maija  4096 10.11. 23:43 maija" //ainoastaan käyttäjällä on oikeus päästä kotihakemistoon. 
+    maija@Virtuaali:~$ sudo chmod o+x /home/maija  //annetaan muille (Apachelle) suoritusoikeuskulkea kotihakemiston kautta hakemaan tietoa sieltä. (execute == x)  
+    maija@Virtuaali:~$ ls -la ~| grep Julkinensivu //Julkiselle sivulle pääsee lukemaan ja suorittamaan myös muut
+    "drwxrwxr-x  2 maija maija  4096 11.11. 01:06 Julkinensivu"  
+
+<img width="305" height="52" alt="Näyttökuva 2026-11-11 021756" src="https://github.com/user-attachments/assets/1a712622-53f1-4f00-ae6c-b65c4441130d" />  
+
+
+
+    
+    
+     
 
     
 
     
 
+    
+
 
 
     
@@ -53,9 +76,7 @@ Caddy näyttää olevan inactive-tilassa, mutta locahostista vastaa edelleen cad
 
     
 
-    maija@Virtuaali:~$ mkdir Julkinensivu  
-    maija@Virtuaali: ~Julkinensivu$   
-    maija@Virtuaali:~$ sudoedit /etc/apache2/sites-available/valiaho.conf 
+ 
   
 
 
