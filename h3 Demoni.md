@@ -12,7 +12,9 @@ Teksti ei ole mielestäni kovin selkeä ja vaatii tekijältä jo aikalailla ymm�
 Tekstistä löytyy vaadittu kansiorakenne ja jokaiseen kansioon vaaditun tekstin sisältö. Tehtävien teossa tulee ottaa huomioon eri paketin käyttö.   
 
 
-**Ansible Community Documentation: Handlers: running operations on change**  
+**Ansible Community Documentation: Handlers: running operations on change** 
+[täällä](https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_handlers.html)  
+
 'ansible-doc service':  
 Ansiblen handler on **tehtävä**, joka suoritetaan silloin kun jokin toinen tehtävä tekee todellisen muutoksen kohdejärjestelmässä.  
 
@@ -61,11 +63,11 @@ Caddy näyttää olevan inactive-tilassa, mutta locahostista vastaa edelleen cad
     
 <img width="281" height="119" alt="Näyttökuva 2026-11-11 015257" src="https://github.com/user-attachments/assets/43c33cf7-37f9-43ba-9d5d-2e331c383897" />  
 
-    maija@Virtuaali:~$ sudo micro /etc/hosts  
+    maija@Virtuaali:~$ sudo micro /etc/hosts  //tämä oli myöhemmin arvioituna turha liike  
     
 <img width="244" height="97" alt="Näyttökuva 2026-11-11 015725" src="https://github.com/user-attachments/assets/020b9038-54d6-4e7a-9dcc-657b2caa6e3f" />´
 
-    maija@Virtuaali:~$ sudoedit /etc/apache2/sites-available/Väliaho.fi.conf  
+    maija@Virtuaali:~$ sudoedit /etc/apache2/sites-available/Väliaho.fi.conf  // Apache-version sivu olisi pitänyt löytyä tuosta osoitteesta. 
     
 <img width="301" height="125" alt="Näyttökuva 2026-11-11 020418" src="https://github.com/user-attachments/assets/acb59b5b-4c2e-4811-a421-2016f19b8852" />  
 
@@ -85,7 +87,7 @@ Caddy näyttää olevan inactive-tilassa, mutta locahostista vastaa edelleen cad
     To activate the new configuration, you need to run:
     "systemctl reload apache2"
 
-Testisivuni ei tule edelleenkään esiin. Caddy on otettu poi käytöstä , mutta se vastaa localhostilta omalla ruudullaan, yksityisellä puolella tulee Apachen oletussivu. 
+Testisivuni ei tule edelleenkään esiin. Caddy on otettu pois käytöstä , mutta se vastaa localhostilta omalla ruudullaan, yksityisellä puolella tulee Apachen oletussivu. 
 
     maija@Virtuaali:~$ curl -I http://väliaho.fi
 HTTP/1.1 200 OK  // tämä siis toimii lokaalisti , mutta ei vaan näy?  
@@ -274,21 +276,15 @@ ____
 
 Lähteet:  
 
+Tero Karvinen 2026, Apache installed with Ansible - quick notes https://terokarvinen.com/apache-ansible/ luettu 8.11.2026-11.11.2026   
+Ansible Community Documentation 2026, https://docs.ansible.com/projects/ansible/latest/playbook_guide/playbooks_handlers.html luettu 10.11.2026    
+Tero karvinen 2026, Hello Ansible https://terokarvinen.com/hello-ansible/  luettu 8.11.- 11.11.2026  
+Caddy Documentation 2026 https://caddyserver.com/docs/  luettu 10.11.2026  
+
+Tekoälynä käytetty Google Gemini ja Chatgpt.  
 
 
 
-
-
-
-#### d) Vapaaehtoinen bonus: Osiris-T. Osiris-T asentaa Wazuhin ja tarvittavat virtuaalikoneet. Voit lähettää vihamielistä verkkoliikennettä (tcpreplay), siepata sen (suricata) ja saat tulokset suoraan dashboardille (wazuh). Enemmän alpha kuin se kreikkalainen kirjain. Mutta Oskari, Nico ja Arttu ilahtuvat, jos kokeilet. Häkämies, Saario, Mukkula 2026: Osiris-T. Häkämies etal 2026: How to Install.
-
-
-
-
-
-Lähteet; 
-
-Nekin kesken
 
 
 
