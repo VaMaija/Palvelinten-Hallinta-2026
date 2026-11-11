@@ -1,7 +1,23 @@
 
 ## h3 Demoni
 
-### A) Apassi.   
+#### X) Tiivistä. 
+
+Tero Karvisen osuus kesken 11.11. 17:30 
+
+**Ansible Community Documentation: Handlers: running operations on change**  
+'ansible-doc service':  
+Ansiblen handler on **tehtävä**, joka suoritetaan silloin kun jokin toinen tehtävä tekee todellisen muutoksen kohdejärjestelmässä.  
+
+    enabled: Määrittää käynnistetäänkö palvelu automaattisesti järjestelmän käynnityessä, arvona _true_ tai _false_
+    name, määrittää sen palvelun nimen, jota halutaan hallita (apache2, nginx) default _null_
+    state, määrittää palvelun ajonaikaisne tilan eli onko oltava käynnissä vai pysäytettynä. Tyypillisiä arvoja _started, stopped, restarted_  
+    EXAMPLES Kesken 17:30
+
+
+
+
+#### A) Apassi.   
 Asenna Apache 2 käsin. Weppisivun tulee näkyä palvelimen etusivulla. Sivun tulee olla tavallisen käyttäjän muokattavissa, ilman root- tai sudo-oikeuksia.  
 
 
@@ -75,7 +91,7 @@ Accept-Ranges: bytes
 
 tekoäly kertoi minulle syyksi, että koska olin aikaisemmin samalla koneella testannut vuokraamaani osoitetta väliaho.fi, niin localhoatia ei voi testata samalla nimellä. Luonnollisesti tajusin sen klo 03:00 yöllä. 
 
-## B) Moottorix. Asenna Nginx käsin. Weppisivun tulee näkyä palvelimen etusivulla. Sivun tulee olla tavallisen käyttäjän muokattavissa, ilman root- tai sudo-oikeuksia. (Muista sammuttaa Apache ensin.)  
+#### B) Moottorix. Asenna Nginx käsin. Weppisivun tulee näkyä palvelimen etusivulla. Sivun tulee olla tavallisen käyttäjän muokattavissa, ilman root- tai sudo-oikeuksia. (Muista sammuttaa Apache ensin.)  
 
         maija@Virtuaali:~$ sudo systemctl stop apache2 //Pysäytetään Apache
         maija@Virtuaali:~$ susdo systemctl disable apache2 // estetään sen automaattinen uudelleenkäynnistyminen  
@@ -88,7 +104,46 @@ tekoäly kertoi minulle syyksi, että koska olin aikaisemmin samalla koneella te
 
 <img width="638" height="164" alt="Näyttökuva 2026-11-11 031028" src="https://github.com/user-attachments/assets/5081a0d5-9b7d-4328-8ddd-d8489d2b3bcf" />  
 
-Tähän asti tehty 10.11 klo 20 - 11.11 klo 03:15. jatkuu huomenna töiden jälkeen.
+Tähän asti tehty 10.11 klo 20 - 11.11 klo 03:15. jatkuu huomenna töiden jälkeen. 
+jatkuu 11.11. klo 16:45  
+
+Ngnix käyttää oletuksena kansiota /var/www/html, joka vaatii sudo-oikeudet. Ohjataan etsimään verkkosivu kansiosta /Julkinensivu/  
+
+        maija@Virtuaali:~$ sudo micro /etc/nginx/sites-available/default //vaihdetaan "kotihakemistoksi" oikea osoite
+        
+<img width="373" height="236" alt="Näyttökuva 2026-11-11 165640" src="https://github.com/user-attachments/assets/7b90eaca-6a8c-4cb0-925f-9e19edf82aa9" />   
+
+      maija@Virtuaali:~$ sudo nginx -t  //Testataan onko syntaksi kunnossa.  
+      maija@Virtuaali:~$ sudo systemctl reload nginx  
+      maija@Virtuaali:~$ curl -I http://localhost  //Testataan vastaako localhost
+
+Aikaisemmasta viisastuneena kävin poistamassa sivustohistorian. Palvelin vastaa kutsuuni localhostista.  
+
+<img width="466" height="416" alt="Näyttökuva 2026-11-11 170858" src="https://github.com/user-attachments/assets/6c4d57f4-1847-4768-b2e1-02b798c8c15e" />  
+
+Tekemisessä käytettiin vahvasti apuna Google Geminin yksinkertaistettuja ohjeita. Prompti: " Moottorix. Asenna Nginx käsin. Weppisivun tulee näkyä palvelimen etusivulla. Sivun tulee olla tavallisen käyttäjän muokattavissa, ilman root- tai sudo-oikeuksia. (Muista sammuttaa Apache ensin.) Kerro minulle selkeästi mitä komennoissa tapahtuu ja miksi. Opasta, opeta ja testaa ymmärränkö."   
+
+
+#### c) Automoottorix. Automatisoi Nginx asennus Ansiblella. Ylläpitäjän osuus Ansiblella riittää, itse HTML-weppisivut voi tehdä käsin. kesken 11.11.
+#### d) Vapaaehtoinen bonus: Osiris-T. Osiris-T asentaa Wazuhin ja tarvittavat virtuaalikoneet. Voit lähettää vihamielistä verkkoliikennettä (tcpreplay), siepata sen (suricata) ja saat tulokset suoraan dashboardille (wazuh). Enemmän alpha kuin se kreikkalainen kirjain. Mutta Oskari, Nico ja Arttu ilahtuvat, jos kokeilet. Häkämies, Saario, Mukkula 2026: Osiris-T. Häkämies etal 2026: How to Install. Kesken 11.11.
+
+
+Lähteet; 
+
+Nekin kesken
+
+
+
+
+        
+
+
+
+ 
+
+        
+
+
 
 
 
