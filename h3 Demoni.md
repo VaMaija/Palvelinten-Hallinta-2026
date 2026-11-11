@@ -75,6 +75,27 @@ Accept-Ranges: bytes
 
 tekoäly kertoi minulle syyksi, että koska olin aikaisemmin samalla koneella testannut vuokraamaani osoitetta väliaho.fi, niin localhoatia ei voi testata samalla nimellä. Luonnollisesti tajusin sen klo 03:00 yöllä. 
 
+## B) Moottorix. Asenna Nginx käsin. Weppisivun tulee näkyä palvelimen etusivulla. Sivun tulee olla tavallisen käyttäjän muokattavissa, ilman root- tai sudo-oikeuksia. (Muista sammuttaa Apache ensin.)  
+
+        maija@Virtuaali:~$ sudo systemctl stop apache2 //Pysäytetään Apache
+        maija@Virtuaali:~$ susdo systemctl disable apache2 // estetään sen automaattinen uudelleenkäynnistyminen  
+        
+<img width="469" height="102" alt="Näyttökuva 2026-11-11 030546" src="https://github.com/user-attachments/assets/f7c4d7e1-e45d-4f3d-a7b2-9061d57ce5d3" />  
+
+        maija@Virtuaali:~$ sudo apt-get install nginx  //Asentaa   
+        maija@Virtuaali:~$ sudo systemctl start nginx  //käynnistää  
+        maija@Virtuaali:~$ sudo systemctl enable nginx //ottaa käyttöön
+
+<img width="638" height="164" alt="Näyttökuva 2026-11-11 031028" src="https://github.com/user-attachments/assets/5081a0d5-9b7d-4328-8ddd-d8489d2b3bcf" />  
+
+Tähän asti tehty 10.11 klo 20 - 11.11 klo 03:15. jatkuu huomenna töiden jälkeen.
+
+
+
+        
+
+
+
 
 
  
