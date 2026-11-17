@@ -11,8 +11,9 @@ Tekstissä todettiin, että vaikka funktiokirjastot ovat laajoja, niin yleisimpi
 oma huomio: Näiden komentojen käytön opettelu kantaa jo ilmeisen pitkälle.  
 **4.12.3 Conftero Definition Language (Karvinen, T. väitöskirja s. 70 ja 115)**   
 Konfiguraatiotyökalu Confteron luomisessa on arvioitu kokonaan uuden DSL-mallin luominen hyvin työlääksi. Tämä saattaisi kuitenkin yksinkertaistaa rakenteita. Toisaalta jo olemassa olevien konfiguraatiofunktioiden käyttäminen vähentäisi kognitiivista kuormitusta ja helpottaisi conftero DSL-mallin sisäistämistä. 
-4.12.3.1 Dependencies Between Main Functions (Karvinen, T. väitöskirja s. 115-117)  
-Yleisimmät 
+**4.12.3.1 Dependencies Between Main Functions (Karvinen, T. väitöskirja s. 115-117)**  
+Tämä päivittyy::
+ 
 
 #### a) Räpylä. Asenna itse valitsemasi demoni käsin. Jokin muu kuin tunnilla tai kotitehtävissä aiemmin asennettu, eli ei apache, ngninx eikä openssh-server. Kuten aina, testaa lopptulos.
 Asennetaan MySQL server [Ubuntu -how to guides](https://ubuntu.com/server/docs/how-to/databases/install-mysql/)  
@@ -30,8 +31,57 @@ Asennetaan MySQL server [Ubuntu -how to guides](https://ubuntu.com/server/docs/h
 
 #### b) Automaatti. Automatisoi valitsemasi demonin asennus Ansiblella.  
 
-    maija@Virtuaali:~/ansible/roles$ mkdir mariadb  //loin Ansible-kansioon rooli(tehtävä)-kansion mariadb  
-    
+    maija@Virtuaali:~/ansible/roles$ mkdir mariadb  //loin Ansible-kansioon rooli(tehtävä)-kansion mariadb 
+	maija@Virtuaali:~/ansible/roles/mariadb$ mkdir tasks //mariadb:lle Tehtäväkansio, johon luodaan main.yml
+	maija@Virtuaali:~/ansible/roles/mariadb$ cat main.yml 
+
+<img width="308" height="116" alt="Näyttökuva 2026-11-18 005427" src="https://github.com/user-attachments/assets/b911d6d0-660b-4ef1-8876-80abedd1595c" />  
+
+apt-osio imaisee mariadb-server työkalun käyttöön  
+service-osio varmistaa, että se käynnistyy  
+
+	maija@Virtuaali:~/ansible$ micro site.yml //Lisätään käytettävien roolien joukkoon mariadb -rooli  
+
+muut osiot ovat tässä vaiheessa kunnossa, ei muutoksia ansible.cfg tai hosts.ini  
+yritin pelata pelikirjalla: 
+
+	maija@Virtuaali:~/ansible$ ansible-playbook site.yml // sain vastaukseksi virhekoodin, jonka mukaan Nginx ei lähde toimimaan. 
+
+```
+tein updaten: sain vastauksekkseksi:1 http://security.debian.org/debian-security trixie-security InRelease [43,4 kB]
+Get:2 http://deb.debian.org/debian trixie InRelease [140 kB]
+Hit:3 http://deb.debian.org/debian trixie-updates InRelease
+Hit:4 http://deb.debian.org/debian trixie-backports InRelease
+Err:1 http://security.debian.org/debian-security trixie-security InRelease
+  Sub-process /usr/bin/sqv returned an error code (1), error message is: Signature by B0CAB9266E8C3929798B3EEEBDE6D2B9216EC7A8 was created after the --not-after date. Signature by 89C87ACEA5DD6B8E6A7068808E9F831205B4BA95 was created after the --not-after date.
+Fetched 140 kB in 0s (863 kB/s)
+Reading package lists... Done
+W: An error occurred during the signature verification. The repository is not updated and the previous index files will be used. OpenPGP signature verification failed: http://security.debian.org/debian-security trixie-security InRelease: Sub-process /usr/bin/sqv returned an error code (1), error message is: Signature by B0CAB9266E8C3929798B3EEEBDE6D2B9216EC7A8 was created after the --not-after date. Signature by 89C87ACEA5DD6B8E6A7068808E9F831205B4BA95 was created after the --not-after date.
+W: Failed to fetch http://security.debian.org/debian-security/dists/trixie-security/InRelease  Sub-process /usr/bin/sqv returned an error code (1), error message is: Signature by B0CAB9266E8C3929798B3EEEBDE6D2B9216EC7A8 was created after the --not-after date. Signature by 89C87ACEA5DD6B8E6A7068808E9F831205B4BA95 was created after the --not-after date.
+W: Some index files failed to download. They have been ignored, or old ones used instead.
+```
+Tämä vaati Googlen tekoälyn apua: kello on väärässä ajassa. Yritin ensin automaattisesti päivittää, sitten manuaalisesti ja lopulta käynnistin koneen uudelleen. Kello päivittyi.  
+
+Yritin käyttää Ansiblen-playbookia muutaman kerran lisää, mutta koneeni meni jumiin. Edes ensimmäinen komento ei mennyt läpi, komennolla "w" huomasin, että virtuaalikoneeni on ylikuormittunut. Liian monta prosessia päällä.  
+
+```
+    maija@Virtuaali:~$ w
+ 01:14:41 up 24 min,  1 user,  load average: 21,32, 19,24, 13,36
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU  WHAT
+maija
+```
+Sammutin koneen ja annoin hetken levätä. Käynnistyessä kello oli kunnossa ja jumissa olleet prosessit siistiytyneet pois.  
+Käynnistin pelikirjan uudelleen ja nginx meni läpi ja homma pääsi etenemään Mariadb asti. Seuraava error:  
+
+<img width="941" height="151" alt="Näyttökuva 2026-11-18 014947" src="https://github.com/user-attachments/assets/72ded76f-6e83-490b-8786-a015b0a53ffe" />  
+
+Tihrustin pitkään ja yritin ymmärtää mikä on pielessä, syötin virhekoodin lopulta tekoälylle, joka huomautti, että ~/tasks/main.yml -tekstissä on kirjoitusvirhe.  
+
+<img width="278" height="128" alt="Näyttökuva 2026-11-18 014805" src="https://github.com/user-attachments/assets/6964c010-3987-48db-a76a-98c8640c0bf2" />  
+
+Kävin korjaamassa viimeisen rivin "enable" sanaksi "enabled"  ja vihdoin homma toimi.  
+
+<img width="931" height="277" alt="Näyttökuva 2026-11-18 015356" src="https://github.com/user-attachments/assets/b97eb88a-d485-4df0-abca-35da943481eb" />  
 
 
 
@@ -40,7 +90,15 @@ Asennetaan MySQL server [Ubuntu -how to guides](https://ubuntu.com/server/docs/h
 
 
 
-  
+
+
+
+
+
+
+
+
+
 
     
     
