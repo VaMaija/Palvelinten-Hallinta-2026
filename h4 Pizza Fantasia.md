@@ -2,17 +2,16 @@ Haaga-Helian kurssi Palvelinten hallinta ICI001AS3A-3017 opettajana Tero Karvine
 
 ### x) Lue ja tiivistä   
 
-**4.12.1 Size and Complexity of Some DLSs (Karvinen, T. väitöskirja s. 112)**  
+**4.12.1 Size and Complexity of Some DLSs (Karvinen, T. [väitöskirja](https://westminsterresearch.westminster.ac.uk/item/w7vvz/configuration-management-of-distributed-systems-over-unreliable-and-hostile-networks) s. 112)**  
 Karvisen väitöskirjan osassa 4.12.1 käytiin läpi konfiguraationhallintatyökalujen (esim. Puppet ja Salt) laajaa funktiokirjastoa, joita käyttämällä voidaan automatisoida tehtäviä. Tekstissä huomioitiin, että funktiokirjastot on laajoja ja vaativat paljon opettelua. Eri konfiguraatiotyökaluilla on eri DSL-kielensä. 
 oma huomio: Lohduttavaa, että tämä tietomäärä on muillekin laaja ja vaikeasti hallittava kokonaisuus.  
 	_DSL ==  domain specific language (s. 14)_   
-**4.12.2 Use of DSL Functions in Case Configuration (Karvinen, T. väitöskirja s.112)**    
+**4.12.2 Use of DSL Functions in Case Configuration (Karvinen, T. [väitöskirja](https://westminsterresearch.westminster.ac.uk/item/w7vvz/configuration-management-of-distributed-systems-over-unreliable-and-hostile-networks) s.112)**    
 Tekstissä todettiin, että vaikka funktiokirjastot ovat laajoja, niin yleisimpiä käytettävissä olevia toimintoja (mm. Packet-file-service -toiminto demonien luomiseksi) ovat yleisesti samankaltaisia. Yleisimmät komennot tutkimuksen mukaan Mozilla Release Engineeringin Puppetissa ovat "case" (20%) "file" (19%), "package" (10%), "exec" (3%) ja "service" (3%).  
 oma huomio: Näiden komentojen käytön opettelu kantaa jo ilmeisen pitkälle.  
-**4.12.3 Conftero Definition Language (Karvinen, T. väitöskirja s. 70 ja 115)**   
-Konfiguraatiotyökalu Confteron luomisessa on arvioitu kokonaan uuden DSL-mallin luominen hyvin työlääksi. Tämä saattaisi kuitenkin yksinkertaistaa rakenteita. Toisaalta jo olemassa olevien konfiguraatiofunktioiden käyttäminen vähentäisi kognitiivista kuormitusta ja helpottaisi conftero DSL-mallin sisäistämistä. 
-**4.12.3.1 Dependencies Between Main Functions (Karvinen, T. väitöskirja s. 115-117)**  
-Tämä päivittyy::
+**4.12.3 Conftero Definition Language (Karvinen, T. [väitöskirja](https://westminsterresearch.westminster.ac.uk/item/w7vvz/configuration-management-of-distributed-systems-over-unreliable-and-hostile-networks) s. 70 ja 115)**   
+Konfiguraatiotyökalu Confteron luomisessa on arvioitu kokonaan uuden DSL-mallin luominen hyvin työlääksi. Tämä saattaisi kuitenkin yksinkertaistaa rakenteita. Toisaalta jo olemassa olevien konfiguraatiofunktioiden käyttäminen vähentäisi kognitiivista kuormitusta ja helpottaisi conftero DSL-mallin sisäistämistä.  
+
  
 
 #### a) Räpylä. Asenna itse valitsemasi demoni käsin. Jokin muu kuin tunnilla tai kotitehtävissä aiemmin asennettu, eli ei apache, ngninx eikä openssh-server. Kuten aina, testaa lopptulos.
@@ -83,7 +82,63 @@ Kävin korjaamassa viimeisen rivin "enable" sanaksi "enabled"  ja vihdoin homma 
 
 <img width="931" height="277" alt="Näyttökuva 2026-11-18 015356" src="https://github.com/user-attachments/assets/b97eb88a-d485-4df0-abca-35da943481eb" />  
 
+### c) Asetus. Muuta asetustiedostoa herralla (master, "control node") ja aja ansible uudestaan. Osoita, että asetukset tulivat käyttöön.  
 
+Minulla oli alussa vaikea ymmärtää tehtävää. 
+
+    maija@Virtuaali:~/ansible/roles/mariadb$ mkdir files  //loin uuden files-kansion tulevia (muutettuja) asetuksia varten 
+    maija@Virtuaali:~$ cp /etc/mysql/mariadb.conf.d/50-server.cnf ~/ansible/roles/mariadb/files //kopion mariadb asetustiedoston sen varsinaisesta sijoituspaikasta.  
+
+Kävin katsomassa mitä asetuksia siellä on. En oikein tiedä mitä kannatti muuttaa: otin riskin ja muutin thread_stackin maininnasta aktiiviseksi poistamalla risuaidan ja lisäämällä numeron 192>>512  
+
+ 
+<img width="366" height="134" alt="Näyttökuva 2026-11-18 021926" src="https://github.com/user-attachments/assets/dd12d488-2a5c-4709-8316-f627a0fafcf5" />  
+<img width="422" height="188" alt="Näyttökuva 2026-11-18 022024" src="https://github.com/user-attachments/assets/a3c739b3-f77b-4db3-b4d2-6d873275726e" />  
+
+    maija@Virtuaali:~/ansible/roles/mariadb/tasks$ micro main.yml  
+
+<img width="277" height="125" alt="Näyttökuva 2026-11-18 022705" src="https://github.com/user-attachments/assets/894c7038-c6a7-4a62-837f-b34e82f57408" />  
+<img width="293" height="168" alt="Näyttökuva 2026-11-18 023317" src="https://github.com/user-attachments/assets/961dd1aa-e77e-4615-9208-3027e3fb29a8" />  
+
+huom! Järjestyksellä on väliä. Uusi osio tulee kahden vanhan väliin. Eka komento asentaa järjestelmän, toinen komento, muuttaa asetuksia halutuiksi ja kolmas käynnistää koneen uudelleen uusilla asetuksilla. Uudet asetukset tulevat voimaan seuraavan pelikirjan avulla. 
+
+<img width="766" height="116" alt="Näyttökuva 2026-11-18 024050" src="https://github.com/user-attachments/assets/7075c9b3-e9c1-4ff9-bcb7-8c9df4670c18" />  
+
+### d) Paikka remonttiin. Riko jotain asetuksia. Voit esimerkiksi poistaa demonin 'sudo apt-get purge foobar' (purge poistaa myös asetustiedostoja), poistaa asennuksen yhteydessä tulevan kansion (sudo rm -r /etc/foobar/ # vaarallista) tms. Ja sitten ajaa ansible-roolisi uudestaan ja todeta, että se korjaa tilanteen.  
+
+    maija@Virtuaali:~$ sudo apt purge -y mariadb-server //niin kova luotto omaan osaamiseen ei ole, että tämä ei jännittäisi, poistetaan mariadb
+	
+<img width="807" height="200" alt="Näyttökuva 2026-11-18 024742" src="https://github.com/user-attachments/assets/2420419a-0aa0-4f6c-a5f9-fb097d0ee812" />  
+
+<img width="247" height="23" alt="Näyttökuva 2026-11-18 024830" src="https://github.com/user-attachments/assets/75798612-78fe-4d3a-b818-dd733b3b5e5c" />  
+
+<img width="698" height="147" alt="Näyttökuva 2026-11-18 024943" src="https://github.com/user-attachments/assets/d9da0034-ae32-4b8d-941d-4438574ac87f" />  
+
+Palauttaminen onnistui maijanasetukset.cnf kanssa. 
+
+### e) Idempotentti. Osoita, että tilasi on idempotentti.  
+
+Uudelleen käytettynä ansible-playbook ei muuta mitään, jos muutettavaa ei ole.  
+
+<img width="698" height="147" alt="Näyttökuva 2026-11-18 024943" src="https://github.com/user-attachments/assets/fec9400d-014c-47d1-b83d-3c7a64318de8" />  
+
+
+
+
+
+LÄHTEET:  
+
+Karvinen, Tero 2024: Configuration Management of Distributed Systems over Unreliable and Hostile Networks https://westminsterresearch.westminster.ac.uk/download/4cc417566aa9af60fe3826d690719e390abdb7a3c8672f3d51b1eb4ca75e7624/1427236/karvinen-2023-configuration-management-of-distributed-systems.pdf luettu 15.11.2026-16.11.2026
+  
+Ubuntu server Documentation: Install and configure a MySQL server https://ubuntu.com/server/docs/how-to/databases/install-mysql/ luettu 17.11.2026 
+
+Karvinen, Tero 2026 Apache installed with Ansible - quick notes  https://terokarvinen.com/apache-ansible/  luettu 17-18.11.2026  
+
+Ansible-doc luettu 17.-.18.11.2026  
+
+Tehtävien teossa on käyetty Googlen Geminin ilmaisversiota (Gemini 4 Hydrogen). Tekoälyä on käytetty tehtävien ymmärtämiseen ja pilkkomiseen pienempiin palasiin sekä kirjoitusvirheiden löytämiseksi koodista.  18.11.2026 
+
+	
 
 
 
