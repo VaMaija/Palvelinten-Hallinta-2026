@@ -122,7 +122,7 @@ Uudelleen käytettynä ansible-playbook ei muuta mitään, jos muutettavaa ei ol
 
 <img width="698" height="147" alt="Näyttökuva 2026-11-18 024943" src="https://github.com/user-attachments/assets/fec9400d-014c-47d1-b83d-3c7a64318de8" />  
 
-<img width="692" height="114" alt="Näyttökuva 2026-11-19 181144" src="https://github.com/user-attachments/  assets/9eb389e7-ba23-40ee-b39d-121215e0d85c" />
+<img width="692" height="114" alt="Näyttökuva 2026-11-19 181144" src="https://github.com/user-attachments/assets/e66be77b-59d7-47a9-9d26-24095852cf77" />  
 
 
 
