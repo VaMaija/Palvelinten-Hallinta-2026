@@ -9,7 +9,7 @@ Gitin käyttö on lähinnä 'git add --all && git commit; git pull && git push'.
 
 #### b) Dolly. Kloonaa edellisessä kohdassa tehty uusi varasto itsellesi, tee muutoksia omalla koneella, puske ne palvelimelle, ja näytä, että ne ilmestyvät weppiliittymään.  
 
-Testailin toisella reposityllä alkuvaihessa ennen kuin aloin tehdä varsinaisia läksyjä, niistä täällä [raporttia]() 
+Testailin toisella reposityllä alkuvaihessa ennen kuin aloin tehdä varsinaisia läksyjä, niistä täällä [raporttia](https://github.com/VaMaija/GIT-training/blob/main/ohjeet.md) 
 
     maija@Virtuaali:~$ git clone https://github.com/VaMaija/Missing-sunshine-in-November
     maija@Virtuaali:~$ ls  
