@@ -8,10 +8,10 @@ Gitin käyttö on lähinnä 'git add --all && git commit; git pull && git push'.
 **Tämä kesken tehtävää palauttaessa. Täydentynee myöhemmin illalla... 25.11.2026 klo 17:30**
 
 
-git add --all = **add** Add file contents to the index **--all** all at the same time 
-git commit =  Record changes to the repository 
-git pull =  Fetch from and integrate with another repository or a local branch
-git push =  Update remote refs along with associated objects
+git add --all = **add** Add file contents to the index **--all** all at the same time   
+git commit =  Record changes to the repository   
+git pull =  Fetch from and integrate with another repository or a local branch  
+git push =  Update remote refs along with associated objects  
 
 $ git help -a //nämä yllä olevat tiedot löytyvät gitin sisäisestä tiedostosta. pl --all, jonka veikkasin ihan itse.    
 
