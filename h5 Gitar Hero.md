@@ -1,23 +1,19 @@
 #### x) Lue ja tiivistä. Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva. Kannattaa lisätä mukaan myös jokin oma havainto, idea tai kysymys.)
 Chacon and Straub 2014: Pro Git, 2ed: 1.3 Getting Started - What is Git?  
 
+
+
 Gitin käyttö on lähinnä 'git add --all && git commit; git pull && git push'. Selitä tuon komennon jokainen osa. Käytä apuna itse valitsemiasi lähteitä ja viittaa niihin.
 
 **Tämä kesken tehtävää palauttaessa. Täydentynee myöhemmin illalla... 25.11.2026 klo 17:30 **
 
-Jyväskylän yliopiopiston ohjelmointi 1 -kurssin [materiaalista](https://ohjelmointi1.it.jyu.fi/git/) löytyy selkeät ohjeet gitin käytön aloittamiseen.  
+
 git add --all = **add** Add file contents to the index **--all** all at the same time 
 git commit =  Record changes to the repository 
 git pull =  Fetch from and integrate with another repository or a local branch
 git push =  Update remote refs along with associated objects
 
-    $ git help -a // 
-
-	
-
-
-
-
+$ git help -a //nämä yllä olevat tiedot löytyvät gitin sisäisestä tiedostosta. pl --all, jonka veikkasin ihan itse.    
 
 #### a) Online. Tee uusi varasto GitHubiin (tai Gitlabiin tai mihin vain vastaavaan palveluun). Varaston nimessä ja lyhyessä kuvauksessa tulee olla sana "sunshine". Aiemmin tehty varasto ei kelpaa. (Muista tehdä varastoon tiedostoja luomisvaiheessa, esim README.md ja GNU General Public License 3) Edistyneemmille voi olla hauskaa etsiä ja kokeilla jokin muu palvelu kuin Github.
 
