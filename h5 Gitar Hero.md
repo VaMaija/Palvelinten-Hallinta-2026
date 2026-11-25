@@ -5,7 +5,7 @@ Chacon and Straub 2014: Pro Git, 2ed: 1.3 Getting Started - What is Git?
 
 Gitin käyttö on lähinnä 'git add --all && git commit; git pull && git push'. Selitä tuon komennon jokainen osa. Käytä apuna itse valitsemiasi lähteitä ja viittaa niihin.
 
-**Tämä kesken tehtävää palauttaessa. Täydentynee myöhemmin illalla... 25.11.2026 klo 17:30 **
+**Tämä kesken tehtävää palauttaessa. Täydentynee myöhemmin illalla... 25.11.2026 klo 17:30**
 
 
 git add --all = **add** Add file contents to the index **--all** all at the same time 
