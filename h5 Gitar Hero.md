@@ -1,7 +1,11 @@
 #### x) Lue ja tiivistä. Tässä x-alakohdassa ei tarvitse tehdä testejä tietokoneella, vain lukeminen tai kuunteleminen ja tiivistelmä riittää. Tiivistämiseen riittää muutama ranskalainen viiva. Kannattaa lisätä mukaan myös jokin oma havainto, idea tai kysymys.)
 Chacon and Straub 2014: Pro Git, 2ed: 1.3 Getting Started - What is Git?  
-  
+
 Gitin käyttö on lähinnä 'git add --all && git commit; git pull && git push'. Selitä tuon komennon jokainen osa. Käytä apuna itse valitsemiasi lähteitä ja viittaa niihin.
+
+**Tämä kesken tehtävää palauttaessa. Täydentynee myöhemmin illalla... 25.11.2026 klo 17:30 **
+
+
 #### a) Online. Tee uusi varasto GitHubiin (tai Gitlabiin tai mihin vain vastaavaan palveluun). Varaston nimessä ja lyhyessä kuvauksessa tulee olla sana "sunshine". Aiemmin tehty varasto ei kelpaa. (Muista tehdä varastoon tiedostoja luomisvaiheessa, esim README.md ja GNU General Public License 3) Edistyneemmille voi olla hauskaa etsiä ja kokeilla jokin muu palvelu kuin Github.
 
 <img width="394" height="386" alt="Näyttökuva 2026-11-25 112903" src="https://github.com/user-attachments/assets/07ab66e8-4f64-42e0-a61b-b4404cd7bc1d" />  
@@ -31,7 +35,7 @@ Testailin toisella reposityllä alkuvaihessa ennen kuin aloin tehdä varsinaisia
     Counting objects: 100% (5/5), done.
     Delta compression using up to 2 threads
     Compressing objects: 100% (3/3), done.
-    Writing objects: 100% (3/3), 419 bytes | 419.00 KiB/s, done.
+    Writing objects: 100% (3/3), 419 bytes | 419.00 KiB/s, done. 
     Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
     To https://github.com/VaMaija/Missing-sunshine-in-November
     38c50ca..31159ef  main -> main
@@ -97,6 +101,93 @@ Alimpana on Githubin reposition luonti käyttäjänä VaMaija ja toisena ensimm�
 
 
 #### e) Gitanbile. Laita Ansible-kansio versionhallintaan. Tee jokin muutos, aja ansiblella, tallenna versio (commit).
+
+    maija@Virtuaali:~$ cd ansible/roles/
+	maija@Virtuaali:~/ansible/roles$ mkdir gitanbile //luodaan oma rooli gitille  
+	maija@Virtuaali:~/ansible/roles/gitanbile$ mkdir tasks  //Luodaan tasks kansio 
+	maija@Virtuaali:~/ansible/roles/gitanbile$ micro main.yml //main.yml meni väärään kohtaan, selvisi myöhemmin
+	maija@Virtuaali:~/ansible$ micro site.yml 
+	maija@Virtuaali:~/ansible$ cat site.yml  
+```  
+- hosts: all
+  become: true 
+  roles:
+    - hello
+    - nginx
+    - mariadb
+    - gitanbile   
+```  
+lisäsin roolin sites.yml -tekstiin  
+
+<img width="195" height="242" alt="Näyttökuva 2026-11-25 162358" src="https://github.com/user-attachments/assets/a77516ee-b52e-4385-9033-7544889a1060" />  
+
+siirsin tasks.yml -tekstin oikeaan kohtaan cp -komennolla ja poistin sen väärästä kohtaa rm komennolla.   
+
+    maija@Virtuaali:~/ansible/roles/gitanbile$ cp main.yml tasks/  
+    maija@Virtuaali:~/ansible/roles/gitanbile$ rm main.yml   
+    maija@Virtuaali:~/ansible$ ansible-playbook site.yml   //git asentui  
+<img width="607" height="143" alt="Näyttökuva 2026-11-25 170459" src="https://github.com/user-attachments/assets/15241cce-6e38-4de1-8d20-7c49df35d614" />  
+	maija@Virtuaali:~/ansible$ git status //yritin tarkastaa gitin tilan.  
+	fatal: not a git repository (or any of the parent directories): .git
+	maija@Virtuaali:~/ansible$ git init  
+	
+```
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+Initialized empty Git repository in /home/maija/ansible/.git/   ///Tämä loi paikallisen git-tiedoston  
+
+```
+
+<img width="354" height="116" alt="Näyttökuva 2026-11-25 170820" src="https://github.com/user-attachments/assets/60bf6f53-4005-4bac-928b-e9280e2aa9dd" />   
+
+git status-komento vinkkaa lisäämään iedostot seurattaviin tiedostoihin. Nyt ansiblen muut tiedostot ei ole seurattavissa.  
+
+
+    maija@Virtuaali:~/ansible$ ansible-playbook site.yml --ask-become-pass  //Ansible pelikirjan käyttö, ei havaitse muutoksia. 
+   
+	maija@Virtuaali:~/ansible$ git log --oneline
+	8072151 (HEAD -> master) Initial Ansible project with git 25.11.2026 /MVÄ
+	maija@Virtuaali:~/ansible/roles/gitanbile/tasks$ micro main.yml  
+	
+ <img width="314" height="89" alt="Näyttökuva 2026-11-25 171642" src="https://github.com/user-attachments/assets/05dfba73-76a2-48dd-bb03-c0da7afd7104" />  
+
+ 
+Tämä ei näy playbookin muutoksissa, mutta näkyy lokeissa:   
+    maija@Virtuaali:~/ansible$ git add .   
+    maija@Virtuaali:~/ansible$ git commit -m "muokattu gitamble-roolia kommenntiraidalla"   
+    [master 95365ac] muokattu gitamble-roolia kommenntiraidalla  
+    1 file changed, 2 insertions(+)  
+
+
+Tehtävät kesken 25.11.2026 klo 17:34... Täydentyy illan mittaan...  
+
+
+    
+	
+	
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
 #### f) Hae pari projektiin Moodlen keskustelusta. (Tästä alakohdasta f ei tarvitse tehdä vaiheittaista teknistä raporttia, riittää kun toteat, että pari on hankittu. Pasilan ryhmä haki parin jo edellisessä tehtävässä, joten tämä on online-ryhmälle -3017.)
 #### g) Vapaaehtoinen: Se toinen järjestelmä: kokeile Gittiä eri käyttöjärjestelmällä kuin sillä, millä teit muut harjoitukset. Selitä niin, että kyseistä järjestelmää osaamatonkin onnistuu. Mahdollisuuksia on runsaasti: Debian, Fedora, Windows, OSX...
 #### h) Vapaaehtoinen: yhteistyötä: anna kaverillesi (tai alter egollesi) oikeus kirjoittaa varastoosi (commit access). Tehkää molemmat muutoksia varastoon gitillä.
