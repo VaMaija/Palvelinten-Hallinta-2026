@@ -5,6 +5,13 @@ Gitin käyttö on lähinnä 'git add --all && git commit; git pull && git push'.
 
 **Tämä kesken tehtävää palauttaessa. Täydentynee myöhemmin illalla... 25.11.2026 klo 17:30 **
 
+Jyväskylän yliopiopiston ohjelmointi 1 -kurssin [materiaalista](https://ohjelmointi1.it.jyu.fi/git/) löytyy selkeät ohjeet gitin käytön aloittamiseen.  
+git add --all && git commit =   
+git git pull && git push =  
+
+
+
+
 
 #### a) Online. Tee uusi varasto GitHubiin (tai Gitlabiin tai mihin vain vastaavaan palveluun). Varaston nimessä ja lyhyessä kuvauksessa tulee olla sana "sunshine". Aiemmin tehty varasto ei kelpaa. (Muista tehdä varastoon tiedostoja luomisvaiheessa, esim README.md ja GNU General Public License 3) Edistyneemmille voi olla hauskaa etsiä ja kokeilla jokin muu palvelu kuin Github.
 
@@ -56,7 +63,7 @@ Näkyy Githubin kautta päivittyneenä tekstinä.
     TÄMÄ TEKSTI TULLAAN POISTAMAAN!  
 
     maija@Virtuaali:~/Missing-sunshine-in-November$ git add .
-    maija@Virtuaali:~/Missing-sunshine-in-November$ got status
+    maija@Virtuaali:~/Missing-sunshine-in-November$ got status  //kirjoitusvirhe tulee erroria...  
     bash: got: command not found
     maija@Virtuaali:~/Missing-sunshine-in-November$ git status
     On branch main
@@ -150,7 +157,11 @@ Initialized empty Git repository in /home/maija/ansible/.git/   ///Tämä loi pa
 
 <img width="354" height="116" alt="Näyttökuva 2026-11-25 170820" src="https://github.com/user-attachments/assets/60bf6f53-4005-4bac-928b-e9280e2aa9dd" />   
 
-git status-komento vinkkaa lisäämään iedostot seurattaviin tiedostoihin. Nyt ansiblen muut tiedostot ei ole seurattavissa.  
+git status-komento vinkkaa lisäämään iedostot seurattaviin tiedostoihin. Nyt ansiblen muut tiedostot ei ole seurattavissa.  Muutan kuitenkin branchin nimeä, jotta pystyn tarkastamaan miten se vaikuttaa tekemisiini.  
+
+    maija@Virtuaali:~/ansible$ git branch -m newGitForTraining //muuttaa luodun deafult-nimen annetuksi. 
+
+<img width="369" height="77" alt="Näyttökuva 2026-11-25 200330" src="https://github.com/user-attachments/assets/37c49ded-c8f3-4eab-a338-0ff5267e3625" />  
 
 
     maija@Virtuaali:~/ansible$ ansible-playbook site.yml --ask-become-pass  //Ansible pelikirjan käyttö, ei havaitse muutoksia. 
@@ -164,10 +175,12 @@ git status-komento vinkkaa lisäämään iedostot seurattaviin tiedostoihin. Nyt
  
 Tämä ei näy playbookin muutoksissa, mutta näkyy lokeissa:   
     maija@Virtuaali: ~/ansible$ git add .   //avataan näyttämö  
-    maija@Virtuaali: ~/ansible$ git commit -m "muokattu gitamble-roolia kommenntiraidalla" //Lisätään kommenttiraita     
+    maija@Virtuaali: ~/ansible$ git commit -m "muokattu gitamble-roolia kommenntiraidalla" //Lisätään kommenttiraita  avaamatta nanoa (-m)    
+
+	``` 
     [master 95365ac] muokattu gitamble-roolia kommenntiraidalla    
     1 file changed, 2 insertions(+)    
-
+    ```
 
 Tehtävät kesken 25.11.2026 klo 17:34... Täydentyy illan mittaan...  
 
@@ -191,5 +204,36 @@ Tehtävät kesken 25.11.2026 klo 17:34... Täydentyy illan mittaan...
 	
 
 #### f) Hae pari projektiin Moodlen keskustelusta. (Tästä alakohdasta f ei tarvitse tehdä vaiheittaista teknistä raporttia, riittää kun toteat, että pari on hankittu. Pasilan ryhmä haki parin jo edellisessä tehtävässä, joten tämä on online-ryhmälle -3017.)
-#### g) Vapaaehtoinen: Se toinen järjestelmä: kokeile Gittiä eri käyttöjärjestelmällä kuin sillä, millä teit muut harjoitukset. Selitä niin, että kyseistä järjestelmää osaamatonkin onnistuu. Mahdollisuuksia on runsaasti: Debian, Fedora, Windows, OSX...
+#### g) Vapaaehtoinen: Se toinen järjestelmä: kokeile Gittiä eri käyttöjärjestelmällä kuin sillä, millä teit muut harjoitukset. Selitä niin, että kyseistä järjestelmää osaamatonkin onnistuu. Mahdollisuuksia on runsaasti: Debian, Fedora, Windows, OSX... 
+
+Avasin powershellin windows-koneestani:   
+<img width="491" height="81" alt="Näyttökuva 2026-11-25 205633" src="https://github.com/user-attachments/assets/7e26f421-1f4b-466b-b9b8-a3889b17da15" />   
+
+<img width="668" height="217" alt="Näyttökuva 2026-11-25 205713" src="https://github.com/user-attachments/assets/38c8d6a6-6217-4a4c-b097-0d10d61058ae" />  
+
+<img width="503" height="201" alt="Näyttökuva 2026-11-25 205747" src="https://github.com/user-attachments/assets/e95c3ef2-a82d-4087-8e22-b24f33f73a4a" />  
+
+Tämän jälkeen avasin Git bashin:  
+
+<img width="209" height="109" alt="Näyttökuva 2026-11-25 211207" src="https://github.com/user-attachments/assets/0fba1a86-e6b2-40a3-ab16-d4f294d6ed4a" />  
+
+komennot toimivat käytännössä samoin kuin linux-pohjalla. Tähän asentamsieen löytyi hyvät ohjeet Jyväskylä yliopiston sivulta. 
+
+
+
+
+
+
+
+
+
+
 #### h) Vapaaehtoinen: yhteistyötä: anna kaverillesi (tai alter egollesi) oikeus kirjoittaa varastoosi (commit access). Tehkää molemmat muutoksia varastoon gitillä.
+
+
+___________________________
+
+Lähteet:  
+Jyväskylän yliopisto: ohjelmointi 1, GIT Versionhallinta https://ohjelmointi1.it.jyu.fi/git/ luettu 24-25.11.2025  
+
+
