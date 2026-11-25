@@ -6,8 +6,14 @@ Gitin käyttö on lähinnä 'git add --all && git commit; git pull && git push'.
 **Tämä kesken tehtävää palauttaessa. Täydentynee myöhemmin illalla... 25.11.2026 klo 17:30 **
 
 Jyväskylän yliopiopiston ohjelmointi 1 -kurssin [materiaalista](https://ohjelmointi1.it.jyu.fi/git/) löytyy selkeät ohjeet gitin käytön aloittamiseen.  
-git add --all && git commit =   
-git git pull && git push =  
+git add --all = **add** Add file contents to the index **--all** all at the same time 
+git commit =  Record changes to the repository 
+git pull =  Fetch from and integrate with another repository or a local branch
+git push =  Update remote refs along with associated objects
+
+    $ git help -a // 
+
+	
 
 
 
@@ -183,27 +189,12 @@ Tämä ei näy playbookin muutoksissa, mutta näkyy lokeissa:
     ```
 
 Tehtävät kesken 25.11.2026 klo 17:34... Täydentyy illan mittaan...  
-
-
-    
-	
 	
 
+#### f) Hae pari projektiin Moodlen keskustelusta. 
 
+Pari jäi hakematta, koska keskustelu oli sulkeutunut 25.11.2026 klo 19:00 mennessä.  
 
-
-
-
-
-
-
-	
-	
-	
-	
-	
-
-#### f) Hae pari projektiin Moodlen keskustelusta. (Tästä alakohdasta f ei tarvitse tehdä vaiheittaista teknistä raporttia, riittää kun toteat, että pari on hankittu. Pasilan ryhmä haki parin jo edellisessä tehtävässä, joten tämä on online-ryhmälle -3017.)
 #### g) Vapaaehtoinen: Se toinen järjestelmä: kokeile Gittiä eri käyttöjärjestelmällä kuin sillä, millä teit muut harjoitukset. Selitä niin, että kyseistä järjestelmää osaamatonkin onnistuu. Mahdollisuuksia on runsaasti: Debian, Fedora, Windows, OSX... 
 
 Avasin powershellin windows-koneestani:   
@@ -217,12 +208,10 @@ Tämän jälkeen avasin Git bashin:
 
 <img width="209" height="109" alt="Näyttökuva 2026-11-25 211207" src="https://github.com/user-attachments/assets/0fba1a86-e6b2-40a3-ab16-d4f294d6ed4a" />  
 
+<img width="387" height="77" alt="Näyttökuva 2026-11-25 211728" src="https://github.com/user-attachments/assets/2e32271e-dcd1-49cb-876a-5b79b5619319" />  
+
+
 komennot toimivat käytännössä samoin kuin linux-pohjalla. Tähän asentamsieen löytyi hyvät ohjeet Jyväskylä yliopiston sivulta. 
-
-
-
-
-
 
 
 
@@ -234,6 +223,8 @@ komennot toimivat käytännössä samoin kuin linux-pohjalla. Tähän asentamsie
 ___________________________
 
 Lähteet:  
-Jyväskylän yliopisto: ohjelmointi 1, GIT Versionhallinta https://ohjelmointi1.it.jyu.fi/git/ luettu 24-25.11.2025  
+Jyväskylän yliopisto: ohjelmointi 1, GIT Versionhallinta https://ohjelmointi1.it.jyu.fi/git/ luettu 24-25.11.2026  
+HPC2N https://hpc2n.github.io/course-intro-git/remotes/ luettu 25.11.2026
+
 
 
