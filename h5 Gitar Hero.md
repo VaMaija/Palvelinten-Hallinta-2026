@@ -126,7 +126,9 @@ siirsin tasks.yml -tekstin oikeaan kohtaan cp -komennolla ja poistin sen väär�
     maija@Virtuaali:~/ansible/roles/gitanbile$ cp main.yml tasks/  
     maija@Virtuaali:~/ansible/roles/gitanbile$ rm main.yml   
     maija@Virtuaali:~/ansible$ ansible-playbook site.yml   //git asentui  
+	
 <img width="607" height="143" alt="Näyttökuva 2026-11-25 170459" src="https://github.com/user-attachments/assets/15241cce-6e38-4de1-8d20-7c49df35d614" />  
+
 	maija@Virtuaali:~/ansible$ git status //yritin tarkastaa gitin tilan.  
 	fatal: not a git repository (or any of the parent directories): .git
 	maija@Virtuaali:~/ansible$ git init  
@@ -154,17 +156,17 @@ git status-komento vinkkaa lisäämään iedostot seurattaviin tiedostoihin. Nyt
     maija@Virtuaali:~/ansible$ ansible-playbook site.yml --ask-become-pass  //Ansible pelikirjan käyttö, ei havaitse muutoksia. 
    
 	maija@Virtuaali:~/ansible$ git log --oneline
-	8072151 (HEAD -> master) Initial Ansible project with git 25.11.2026 /MVÄ
-	maija@Virtuaali:~/ansible/roles/gitanbile/tasks$ micro main.yml  
+	8072151 (HEAD -> master) Initial Ansible project with git 25.11.2026 /MVÄ  
+	maija@Virtuaali:~/ansible/roles/gitanbile/tasks$ micro main.yml   
 	
  <img width="314" height="89" alt="Näyttökuva 2026-11-25 171642" src="https://github.com/user-attachments/assets/05dfba73-76a2-48dd-bb03-c0da7afd7104" />  
 
  
 Tämä ei näy playbookin muutoksissa, mutta näkyy lokeissa:   
-    maija@Virtuaali:~/ansible$ git add .   
-    maija@Virtuaali:~/ansible$ git commit -m "muokattu gitamble-roolia kommenntiraidalla"   
-    [master 95365ac] muokattu gitamble-roolia kommenntiraidalla  
-    1 file changed, 2 insertions(+)  
+    maija@Virtuaali: ~/ansible$ git add .   //avataan näyttämö  
+    maija@Virtuaali: ~/ansible$ git commit -m "muokattu gitamble-roolia kommenntiraidalla" //Lisätään kommenttiraita     
+    [master 95365ac] muokattu gitamble-roolia kommenntiraidalla    
+    1 file changed, 2 insertions(+)    
 
 
 Tehtävät kesken 25.11.2026 klo 17:34... Täydentyy illan mittaan...  
