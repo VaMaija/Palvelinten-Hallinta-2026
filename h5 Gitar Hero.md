@@ -9,7 +9,34 @@ Gitin käyttö on lähinnä 'git add --all && git commit; git pull && git push'.
 
 #### b) Dolly. Kloonaa edellisessä kohdassa tehty uusi varasto itsellesi, tee muutoksia omalla koneella, puske ne palvelimelle, ja näytä, että ne ilmestyvät weppiliittymään. 
 
-        maija@Virtuaali:~$ git clone https://github.com/VaMaija/Missing-sunshine-in-November  
+    maija@Virtuaali:~$ git clone https://github.com/VaMaija/Missing-sunshine-in-November
+    maija@Virtuaali:~$ ls  
+    maija@Virtuaali:~$ cd Missing-sunshine-in-November/  
+
+<img width="271" height="19" alt="Näyttökuva 2026-11-25 120733" src="https://github.com/user-attachments/assets/697791e7-d58b-469c-8741-7c4dd7ae76a8" />  
+
+    maija@Virtuaali:~/Missing-sunshine-in-November$ micro First\ markdown.md   //tabia käyttäessä markdownin nimi muuttui
+    maija@Virtuaali:~/Missing-sunshine-in-November$ git add .   
+    maija@Virtuaali:~/Missing-sunshine-in-November$ git commit   
+
+    [main 31159ef] Ensimmäinen muutos gitin kautta
+     1 file changed, 3 insertions(+), 1 deletion(-)  
+   maija@Virtuaali:~/Missing-sunshine-in-November$ git push  
+
+    Username for 'https://github.com': VaMaija
+    Password for 'https://VaMaija@github.com': 
+    Enumerating objects: 5, done.
+    Counting objects: 100% (5/5), done.
+    Delta compression using up to 2 threads
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 419 bytes | 419.00 KiB/s, done.
+    Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+    To https://github.com/VaMaija/Missing-sunshine-in-November
+    38c50ca..31159ef  main -> main
+
+    
+
+
         
          
 #### c) Doh! Tee tyhmä muutos gittiin, älä tee commit:tia. Tuhoa huonot muutokset ‘git reset --hard’. Huomaa, että tässä toiminnossa ei ole peruutusnappia.
